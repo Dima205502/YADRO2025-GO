@@ -1,0 +1,2 @@
+port: 8080
+storage_path: "/home/kinder/FileStorage"

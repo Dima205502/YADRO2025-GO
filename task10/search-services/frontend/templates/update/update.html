@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Update — Результат</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    .neon-card {
+      margin: 3rem auto;
+      padding: 2rem;
+      max-width: 600px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid #0ff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
+      text-align: center;
+      color: #0ff;
+    }
+    .neon-btn { margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <header>
+    <h1 class="neon-text">Обновление комиксов</h1>
+  </header>
+  <main>
+    <div class="neon-card">
+      {{if eq .Code 200}}
+        <p>✅ Комиксы успешно обновлены!</p>
+      {{else if eq .Code 202}}
+        <p>ℹ️ Запрос на обновление принят и обрабатывается.</p>
+      {{else}}
+        <p>❌ Неизвестный статус обновления. Код: {{.Code}}</p>
+      {{end}}
+    </div>
+    <a href="/" class="neon-btn">На главную</a>
+  </main>
+  <footer>
+    &copy; 2025 Comics Search
+  </footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доступ запрещен</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        .unauthorized-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .neon-401 {
+            font-size: 8rem;
+            margin-bottom: 2rem;
+            text-shadow: 
+                0 0 5px #ff0000,
+                0 0 10px #ff0000,
+                0 0 20px #ff0000;
+            animation: neonPulse 1.5s infinite alternate;
+        }
+        
+        @keyframes neonPulse {
+            from {
+                opacity: 0.8;
+                text-shadow: 0 0 2px #ff0000;
+            }
+            to {
+                opacity: 1;
+                text-shadow: 
+                    0 0 5px #ff0000,
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    
+    <div class="unauthorized-container">
+        <h1 class="neon-401">401</h1>
+        <h2 class="neon-text" style="margin-bottom: 3rem;">Неправильный логин или пароль</h2>
+        <a href="/" class="neon-btn" style="font-size: 1.5rem; padding: 15px 30px;">
+            Вернуться на главную
+        </a>
+    </div>
+    <footer>
+        &copy; 2025 Comics Search
+    </footer>
+</body>
+</html>

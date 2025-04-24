@@ -1,0 +1,160 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body {
+  background: #000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(45deg, #0f0c29, #302b63, #24243e, #0f0c29);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+header {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.neon-text {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow:
+    0 0 5px #f0f,
+    0 0 10px #f0f,
+    0 0 20px #f0f,
+    0 0 40px #0ff,
+    0 0 80px #0ff;
+  animation: neonFlicker 1.5s infinite alternate;
+}
+@keyframes neonFlicker {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.8; text-shadow: 0 0 2px #f0f; }
+}
+nav {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.neon-btn {
+  position: relative;
+  background: transparent;
+  border: 2px solid #0ff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #0ff;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, #0ff, transparent);
+  transition: all 0.5s;
+}
+.neon-btn:hover::before {
+  left: 100%;
+}
+.main, .search, .viewer, .login-container {
+  z-index: 1;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+}
+.neon-card {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #0ff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow:
+    0 0 10px #0ff,
+    0 0 20px #f0f;
+}
+.search {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.neon-input {
+  background: transparent;
+  border: 2px solid #0ff;
+  padding: 0.75rem;
+  color: #0ff;
+  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.neon-input::placeholder { color: #555; }
+.neon-input:focus { border-color: #f0f; }
+.search-btn { border-color: #f0f; color: #f0f; }
+.search-btn:hover { color: #fff; }
+.viewer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #0ff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.nav-btn:hover { transform: scale(1.2); color: #f0f; }
+.neon-image {
+  max-width: 600px;
+  width: 100%;
+  border: 5px solid #0ff;
+  border-radius: 10px;
+  box-shadow:
+    0 0 10px #0ff,
+    0 0 20px #f0f;
+}
+.login-container {
+  height: calc(100vh - 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.neon-btn {
+  transition: all 0.3s ease;
+}
+
+
+/* Чтобы оба поля были одной ширины */
+.search .form-group {
+  width: 100%;
+}
+
+/* Применяем ширину 100% к самому полю ввода */
+.search .form-group .neon-input {
+  width: 100%;
+  box-sizing: border-box; /* Чтобы паддинги и бордеры учитывались в ширине */
+}

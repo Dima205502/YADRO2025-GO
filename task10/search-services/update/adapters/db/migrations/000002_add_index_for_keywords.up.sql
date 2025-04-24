@@ -1,0 +1,1 @@
+CREATE INDEX idx_comics_keywords ON comics USING GIN(keywords);

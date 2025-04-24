@@ -1,0 +1,4626 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>aaa: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">yadro.com/course/api/adapters/aaa/auth.go (86.7%)</option>
+				
+				<option value="file1">yadro.com/course/api/adapters/rest/api.go (73.0%)</option>
+				
+				<option value="file2">yadro.com/course/api/adapters/rest/middleware/auth.go (100.0%)</option>
+				
+				<option value="file3">yadro.com/course/api/adapters/rest/middleware/concurrency.go (100.0%)</option>
+				
+				<option value="file4">yadro.com/course/api/adapters/rest/middleware/mocks/auth.go (0.0%)</option>
+				
+				<option value="file5">yadro.com/course/api/adapters/rest/middleware/rate.go (100.0%)</option>
+				
+				<option value="file6">yadro.com/course/api/adapters/rest/mocks/auth/auth.go (0.0%)</option>
+				
+				<option value="file7">yadro.com/course/api/adapters/rest/mocks/ports/ports.go (0.0%)</option>
+				
+				<option value="file8">yadro.com/course/api/adapters/search/mocks/search.go (0.0%)</option>
+				
+				<option value="file9">yadro.com/course/api/adapters/search/search.go (78.6%)</option>
+				
+				<option value="file10">yadro.com/course/api/adapters/update/mocks/update.go (0.0%)</option>
+				
+				<option value="file11">yadro.com/course/api/adapters/update/update.go (70.4%)</option>
+				
+				<option value="file12">yadro.com/course/api/adapters/words/mocks/words.go (0.0%)</option>
+				
+				<option value="file13">yadro.com/course/api/adapters/words/words.go (57.1%)</option>
+				
+				<option value="file14">yadro.com/course/api/config/config.go (75.0%)</option>
+				
+				<option value="file15">yadro.com/course/frontend/config/config.go (0.0%)</option>
+				
+				<option value="file16">yadro.com/course/frontend/handler/handlers.go (0.0%)</option>
+				
+				<option value="file17">yadro.com/course/frontend/main.go (0.0%)</option>
+				
+				<option value="file18">yadro.com/course/search/adapters/db/mocks/storage.go (0.0%)</option>
+				
+				<option value="file19">yadro.com/course/search/adapters/db/storage.go (77.8%)</option>
+				
+				<option value="file20">yadro.com/course/search/adapters/grpc/mocks/grpc.go (0.0%)</option>
+				
+				<option value="file21">yadro.com/course/search/adapters/grpc/server.go (87.5%)</option>
+				
+				<option value="file22">yadro.com/course/search/adapters/index/index.go (32.0%)</option>
+				
+				<option value="file23">yadro.com/course/search/adapters/index/mocks/index.go (0.0%)</option>
+				
+				<option value="file24">yadro.com/course/search/adapters/words/mocks/words.go (0.0%)</option>
+				
+				<option value="file25">yadro.com/course/search/adapters/words/words.go (54.5%)</option>
+				
+				<option value="file26">yadro.com/course/search/config/config.go (75.0%)</option>
+				
+				<option value="file27">yadro.com/course/search/core/build_index.go (80.0%)</option>
+				
+				<option value="file28">yadro.com/course/search/core/mocks.go (71.2%)</option>
+				
+				<option value="file29">yadro.com/course/search/core/service.go (78.1%)</option>
+				
+				<option value="file30">yadro.com/course/update/adapters/db/migrations.go (0.0%)</option>
+				
+				<option value="file31">yadro.com/course/update/adapters/db/mocks/storage.go (0.0%)</option>
+				
+				<option value="file32">yadro.com/course/update/adapters/db/sqlx_adapter.go (0.0%)</option>
+				
+				<option value="file33">yadro.com/course/update/adapters/db/storage.go (70.0%)</option>
+				
+				<option value="file34">yadro.com/course/update/adapters/grpc/mocks/ports.go (0.0%)</option>
+				
+				<option value="file35">yadro.com/course/update/adapters/grpc/server.go (100.0%)</option>
+				
+				<option value="file36">yadro.com/course/update/adapters/words/mocks/words.go (0.0%)</option>
+				
+				<option value="file37">yadro.com/course/update/adapters/words/words.go (61.5%)</option>
+				
+				<option value="file38">yadro.com/course/update/adapters/xkcd/xkcd.go (95.7%)</option>
+				
+				<option value="file39">yadro.com/course/update/config/config.go (75.0%)</option>
+				
+				<option value="file40">yadro.com/course/update/core/mocks.go (67.0%)</option>
+				
+				<option value="file41">yadro.com/course/update/core/service.go (85.4%)</option>
+				
+				<option value="file42">yadro.com/course/words/words/words.go (100.0%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">no coverage</span>
+				<span class="cov1">low coverage</span>
+				<span class="cov2">*</span>
+				<span class="cov3">*</span>
+				<span class="cov4">*</span>
+				<span class="cov5">*</span>
+				<span class="cov6">*</span>
+				<span class="cov7">*</span>
+				<span class="cov8">*</span>
+				<span class="cov9">*</span>
+				<span class="cov10">high coverage</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package aaa
+
+import (
+        "errors"
+        "fmt"
+        "log/slog"
+        "os"
+        "time"
+
+        "github.com/golang-jwt/jwt/v5"
+)
+
+const secretKey = "something secret here" // token sign key
+const adminRole = "superuser"             // token subject
+
+// Authentication, Authorization, Accounting
+type AAA struct {
+        users    map[string]string
+        tokenTTL time.Duration
+        log      *slog.Logger
+}
+
+func New(tokenTTL time.Duration, log *slog.Logger) (AAA, error) <span class="cov10" title="6">{
+        const adminUser = "ADMIN_USER"
+        const adminPass = "ADMIN_PASSWORD"
+
+        user, ok := os.LookupEnv(adminUser)
+        if !ok </span><span class="cov1" title="1">{
+                return AAA{}, fmt.Errorf("could not get admin user from enviroment")
+        }</span>
+        <span class="cov9" title="5">password, ok := os.LookupEnv(adminPass)
+        if !ok </span><span class="cov1" title="1">{
+                return AAA{}, fmt.Errorf("could not get admin password from enviroment")
+        }</span>
+
+        <span class="cov7" title="4">return AAA{
+                users:    map[string]string{user: password},
+                tokenTTL: tokenTTL,
+                log:      log,
+        }, nil</span>
+}
+
+func (a AAA) Login(name, password string) (string, error) <span class="cov6" title="3">{
+        storedPass, ok := a.users[name]
+        if !ok || storedPass != password </span><span class="cov1" title="1">{
+                return "", errors.New("invalid credentials")
+        }</span>
+
+        <span class="cov4" title="2">token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.RegisteredClaims{
+                ExpiresAt: jwt.NewNumericDate(time.Now().Add(a.tokenTTL)),
+                Subject:   adminRole,
+        })
+
+        tokenString, err := token.SignedString([]byte(secretKey))
+        if err != nil </span><span class="cov0" title="0">{
+                a.log.Error("failed to sign token", "error", err)
+                return "", errors.New("failed to generate token")
+        }</span>
+
+        <span class="cov4" title="2">return tokenString, nil</span>
+}
+
+func (a AAA) Verify(tokenString string) error <span class="cov7" title="4">{
+
+        token, err := jwt.ParseWithClaims(tokenString, &amp;jwt.RegisteredClaims{}, func(token *jwt.Token) (interface{}, error) </span><span class="cov6" title="3">{
+                if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok </span><span class="cov0" title="0">{
+                        return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+                }</span>
+                <span class="cov6" title="3">return []byte(secretKey), nil</span>
+        })
+
+        <span class="cov7" title="4">if err != nil </span><span class="cov4" title="2">{
+                a.log.Error("token verification failed", "error", err)
+                return errors.New("invalid token")
+        }</span>
+
+        <span class="cov4" title="2">if claims, ok := token.Claims.(*jwt.RegisteredClaims); ok &amp;&amp; token.Valid </span><span class="cov4" title="2">{
+                if claims.Subject != adminRole </span><span class="cov1" title="1">{
+                        return errors.New("invalid role")
+                }</span>
+        } else<span class="cov0" title="0"> {
+                return errors.New("invalid token claims")
+        }</span>
+
+        <span class="cov1" title="1">return nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">//go:generate mockgen -source ../../core/ports.go -destination ./mocks/ports/ports.go -package mock_port
+
+package rest
+
+import (
+        "encoding/json"
+        "log/slog"
+        "net/http"
+        "strconv"
+
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/status"
+        "yadro.com/course/api/core"
+)
+
+const defaultLimit = "10"
+
+type PingResponse struct {
+        Replies map[string]string `json:"replies"`
+}
+
+func NewPingHandler(log *slog.Logger, pingers map[string]core.Pinger) http.HandlerFunc <span class="cov1" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov1" title="1">{
+                log.Debug("PingHandler", "pingers", pingers)
+
+                replies := make(map[string]string)
+
+                ctx := r.Context()
+                for name, pinger := range pingers </span><span class="cov6" title="2">{
+                        if err := pinger.Ping(ctx); err != nil </span><span class="cov1" title="1">{
+                                replies[name] = "unavailable"
+
+                                log.Error("ping failed", "service", name, "error", err)
+                        }</span> else<span class="cov1" title="1"> {
+                                replies[name] = "ok"
+                        }</span>
+                }
+
+                <span class="cov1" title="1">w.Header().Set("Content-Type", "application/json")
+                if err := json.NewEncoder(w).Encode(PingResponse{Replies: replies}); err != nil </span><span class="cov0" title="0">{
+                        log.Error("failed to encode JSON response", "error", err)
+                        return
+                }</span>
+        }
+}
+
+type Authenticator interface {
+        Login(user, password string) (string, error)
+}
+
+func NewLoginHandler(log *slog.Logger, auth Authenticator) http.HandlerFunc <span class="cov6" title="2">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov6" title="2">{
+                var authInfo struct {
+                        Name     string `json:"name"`
+                        Password string `json:"password"`
+                }
+
+                if err := json.NewDecoder(r.Body).Decode(&amp;authInfo); err != nil </span><span class="cov1" title="1">{
+                        http.Error(w, "", http.StatusUnauthorized)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">token, err := auth.Login(authInfo.Name, authInfo.Password)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, "", http.StatusUnauthorized)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">if _, err := w.Write([]byte(token)); err != nil </span><span class="cov0" title="0">{
+                        log.Error("NewLoginHandler", "w.Write", err)
+                }</span>
+
+        }
+}
+
+func NewUpdateHandler(log *slog.Logger, updater core.Updater) http.HandlerFunc <span class="cov10" title="3">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov10" title="3">{
+                if err := updater.Update(r.Context()); err != nil </span><span class="cov6" title="2">{
+                        if code := status.Code(err); code == codes.AlreadyExists </span><span class="cov1" title="1">{
+                                w.WriteHeader(http.StatusAccepted)
+                                return
+                        }</span>
+                        <span class="cov1" title="1">http.Error(w, "NewUpdateHandler:"+err.Error(), http.StatusInternalServerError)
+                        return</span>
+                }
+
+                <span class="cov1" title="1">w.WriteHeader(http.StatusOK)</span>
+        }
+}
+
+func NewUpdateStatsHandler(log *slog.Logger, updater core.Updater) http.HandlerFunc <span class="cov1" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov1" title="1">{
+                stats, err := updater.Stats(r.Context())
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">log.Info("StatsHandler", "result", stats)
+
+                statsResponse := struct {
+                        WordsTotal    int `json:"words_total"`
+                        WordsUnique   int `json:"words_unique"`
+                        ComicsFetched int `json:"comics_fetched"`
+                        ComicsTotal   int `json:"comics_total"`
+                }{
+                        WordsTotal:    stats.WordsTotal,
+                        WordsUnique:   stats.WordsUnique,
+                        ComicsFetched: stats.ComicsFetched,
+                        ComicsTotal:   stats.ComicsTotal,
+                }
+
+                if err := json.NewEncoder(w).Encode(statsResponse); err != nil </span><span class="cov0" title="0">{
+                        log.Error("UpdateStatsHandlers", "error", err)
+                        return
+                }</span>
+        }
+}
+
+func NewUpdateStatusHandler(log *slog.Logger, updater core.Updater) http.HandlerFunc <span class="cov1" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov1" title="1">{
+
+                status, err := updater.Status(r.Context())
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">if err := json.NewEncoder(w).Encode(map[string]core.UpdateStatus{"status": status}); err != nil </span><span class="cov0" title="0">{
+                        log.Error("NewUpdateStatusHandler", "error", err)
+                }</span>
+        }
+}
+
+func NewDropHandler(log *slog.Logger, updater core.Updater) http.HandlerFunc <span class="cov6" title="2">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov6" title="2">{
+                err := updater.Drop(r.Context())
+
+                if err != nil </span><span class="cov1" title="1">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">w.WriteHeader(http.StatusOK)</span>
+        }
+}
+
+type Comics struct {
+        ID  int    `json:"id"`
+        URL string `json:"url"`
+}
+
+type ComicsResponse struct {
+        Comics []Comics `json:"comics"`
+        Total  int      `json:"total"`
+}
+
+func NewSearchHandler(log *slog.Logger, searcher core.Searcher) http.HandlerFunc <span class="cov1" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov1" title="1">{
+                log.Info("SearchHandler start")
+
+                query := r.URL.Query()
+                limitStr := query.Get("limit")
+
+                if limitStr == "" </span><span class="cov0" title="0">{
+                        limitStr = defaultLimit
+                }</span>
+
+                <span class="cov1" title="1">limit, err := strconv.Atoi(limitStr)
+
+                if err != nil || limit &lt; 0 </span><span class="cov0" title="0">{
+                        http.Error(w, "Unexpected 'limit' parameter", http.StatusBadRequest)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">phrase := query.Get("phrase")
+                if phrase == "" </span><span class="cov0" title="0">{
+                        http.Error(w, "Missing 'phrase' parameter.", http.StatusBadRequest)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">comics, err := searcher.DbSearch(r.Context(), limit, phrase)
+
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">log.Debug("Search", "limit", limit, "phrase", phrase)
+
+                var comicsRespose ComicsResponse
+
+                for _, x := range comics </span><span class="cov6" title="2">{
+                        comicsRespose.Comics = append(comicsRespose.Comics, Comics{ID: x.ID, URL: x.URL})
+                }</span>
+                <span class="cov1" title="1">comicsRespose.Total = len(comicsRespose.Comics)
+
+                log.Info("Search", "result", comicsRespose)
+
+                w.Header().Set("Content-Type", "application/json")
+                if err := json.NewEncoder(w).Encode(comicsRespose); err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+        }
+}
+
+func NewSearchIndexHandler(log *slog.Logger, searcher core.Searcher) http.HandlerFunc <span class="cov1" title="1">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov1" title="1">{
+                log.Info("IndexSearchHandler start")
+
+                query := r.URL.Query()
+                limitStr := query.Get("limit")
+
+                if limitStr == "" </span><span class="cov0" title="0">{
+                        limitStr = defaultLimit
+                }</span>
+
+                <span class="cov1" title="1">limit, err := strconv.Atoi(limitStr)
+
+                if err != nil || limit &lt; 0 </span><span class="cov0" title="0">{
+                        http.Error(w, "Unexpected 'limit' parameter", http.StatusBadRequest)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">phrase := query.Get("phrase")
+                if phrase == "" </span><span class="cov0" title="0">{
+                        http.Error(w, "Missing 'phrase' parameter.", http.StatusBadRequest)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">comics, err := searcher.IndexSearch(r.Context(), limit, phrase)
+
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">log.Debug("IndexSearch", "limit", limit, "phrase", phrase)
+
+                var comicsRespose ComicsResponse
+
+                for _, x := range comics </span><span class="cov10" title="3">{
+                        comicsRespose.Comics = append(comicsRespose.Comics, Comics{ID: x.ID, URL: x.URL})
+                }</span>
+                <span class="cov1" title="1">comicsRespose.Total = len(comicsRespose.Comics)
+
+                log.Info("IndexSearch", "result", comicsRespose)
+
+                w.Header().Set("Content-Type", "application/json")
+                if err := json.NewEncoder(w).Encode(comicsRespose); err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">//go:generate mockgen -source ./auth.go -destination ./mocks/auth.go -package mock_auth
+package middleware
+
+import (
+        "net/http"
+        "strings"
+)
+
+type TokenVerifier interface {
+        Verify(token string) error
+}
+
+func Auth(next http.HandlerFunc, verifier TokenVerifier) http.HandlerFunc <span class="cov8" title="3">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov10" title="4">{
+                authHeader := r.Header.Get("Authorization")
+
+                authType, token, found := strings.Cut(authHeader, " ")
+                if !found || authType != "Token" </span><span class="cov5" title="2">{
+                        http.Error(w, "invalid authorization format", http.StatusUnauthorized)
+                        return
+                }</span>
+
+                <span class="cov5" title="2">if err := verifier.Verify(token); err != nil </span><span class="cov1" title="1">{
+                        http.Error(w, "invalid token", http.StatusUnauthorized)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">next(w, r)</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package middleware
+
+import (
+        "net/http"
+)
+
+func Concurrency(next http.HandlerFunc, limit int) http.HandlerFunc <span class="cov4" title="2">{
+        semaphore := make(chan struct{}, limit)
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov10" title="5">{
+                select </span>{
+                case semaphore &lt;- struct{}{}:<span class="cov8" title="4">
+                        defer func() </span><span class="cov8" title="4">{ &lt;-semaphore }</span>()
+                        <span class="cov8" title="4">next(w, r)</span>
+                default:<span class="cov1" title="1">
+                        http.Error(w, "Service Unavailable", http.StatusServiceUnavailable)</span>
+                }
+        }
+}
+</pre>
+		
+		<pre class="file" id="file4" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ./auth.go
+//
+// Generated by this command:
+//
+//        mockgen -source ./auth.go -destination ./mocks/auth.go -package mock_auth
+//
+
+// Package mock_auth is a generated GoMock package.
+package mock_auth
+
+import (
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+)
+
+// MockTokenVerifier is a mock of TokenVerifier interface.
+type MockTokenVerifier struct {
+        ctrl     *gomock.Controller
+        recorder *MockTokenVerifierMockRecorder
+        isgomock struct{}
+}
+
+// MockTokenVerifierMockRecorder is the mock recorder for MockTokenVerifier.
+type MockTokenVerifierMockRecorder struct {
+        mock *MockTokenVerifier
+}
+
+// NewMockTokenVerifier creates a new mock instance.
+func NewMockTokenVerifier(ctrl *gomock.Controller) *MockTokenVerifier <span class="cov0" title="0">{
+        mock := &amp;MockTokenVerifier{ctrl: ctrl}
+        mock.recorder = &amp;MockTokenVerifierMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockTokenVerifier) EXPECT() *MockTokenVerifierMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Verify mocks base method.
+func (m *MockTokenVerifier) Verify(token string) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Verify", token)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Verify indicates an expected call of Verify.
+func (mr *MockTokenVerifierMockRecorder) Verify(token any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Verify", reflect.TypeOf((*MockTokenVerifier)(nil).Verify), token)
+}</span>
+</pre>
+		
+		<pre class="file" id="file5" style="display: none">package middleware
+
+import (
+        "fmt"
+        "net/http"
+
+        "golang.org/x/time/rate"
+)
+
+func Rate(next http.HandlerFunc, limit int) http.HandlerFunc <span class="cov10" title="2">{
+        limiter := rate.NewLimiter(rate.Limit(limit), 1)
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov10" title="2">{
+                if err := limiter.Wait(r.Context()); err != nil </span><span class="cov1" title="1">{
+                        fmt.Println(err)
+                        http.Error(w, "server is going down", http.StatusServiceUnavailable)
+                        return
+                }</span>
+
+                <span class="cov1" title="1">next(w, r)</span>
+        }
+}
+</pre>
+		
+		<pre class="file" id="file6" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ./api.go
+//
+// Generated by this command:
+//
+//        mockgen -source ./api.go -destination ./mocks/auth/auth.go -package mock_auth
+//
+
+// Package mock_auth is a generated GoMock package.
+package mock_auth
+
+import (
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+)
+
+// MockAuthenticator is a mock of Authenticator interface.
+type MockAuthenticator struct {
+        ctrl     *gomock.Controller
+        recorder *MockAuthenticatorMockRecorder
+        isgomock struct{}
+}
+
+// MockAuthenticatorMockRecorder is the mock recorder for MockAuthenticator.
+type MockAuthenticatorMockRecorder struct {
+        mock *MockAuthenticator
+}
+
+// NewMockAuthenticator creates a new mock instance.
+func NewMockAuthenticator(ctrl *gomock.Controller) *MockAuthenticator <span class="cov0" title="0">{
+        mock := &amp;MockAuthenticator{ctrl: ctrl}
+        mock.recorder = &amp;MockAuthenticatorMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockAuthenticator) EXPECT() *MockAuthenticatorMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Login mocks base method.
+func (m *MockAuthenticator) Login(user, password string) (string, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Login", user, password)
+        ret0, _ := ret[0].(string)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Login indicates an expected call of Login.
+func (mr *MockAuthenticatorMockRecorder) Login(user, password any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Login", reflect.TypeOf((*MockAuthenticator)(nil).Login), user, password)
+}</span>
+</pre>
+		
+		<pre class="file" id="file7" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ../../core/ports.go
+//
+// Generated by this command:
+//
+//        mockgen -source ../../core/ports.go -destination ./mocks/ports/ports.go -package mock_port
+//
+
+// Package mock_port is a generated GoMock package.
+package mock_port
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        core "yadro.com/course/api/core"
+)
+
+// MockNormalizer is a mock of Normalizer interface.
+type MockNormalizer struct {
+        ctrl     *gomock.Controller
+        recorder *MockNormalizerMockRecorder
+        isgomock struct{}
+}
+
+// MockNormalizerMockRecorder is the mock recorder for MockNormalizer.
+type MockNormalizerMockRecorder struct {
+        mock *MockNormalizer
+}
+
+// NewMockNormalizer creates a new mock instance.
+func NewMockNormalizer(ctrl *gomock.Controller) *MockNormalizer <span class="cov0" title="0">{
+        mock := &amp;MockNormalizer{ctrl: ctrl}
+        mock.recorder = &amp;MockNormalizerMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockNormalizer) EXPECT() *MockNormalizerMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockNormalizer) Norm(arg0 context.Context, arg1 string) ([]string, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Norm", arg0, arg1)
+        ret0, _ := ret[0].([]string)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Norm indicates an expected call of Norm.
+func (mr *MockNormalizerMockRecorder) Norm(arg0, arg1 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockNormalizer)(nil).Norm), arg0, arg1)
+}</span>
+
+// MockPinger is a mock of Pinger interface.
+type MockPinger struct {
+        ctrl     *gomock.Controller
+        recorder *MockPingerMockRecorder
+        isgomock struct{}
+}
+
+// MockPingerMockRecorder is the mock recorder for MockPinger.
+type MockPingerMockRecorder struct {
+        mock *MockPinger
+}
+
+// NewMockPinger creates a new mock instance.
+func NewMockPinger(ctrl *gomock.Controller) *MockPinger <span class="cov0" title="0">{
+        mock := &amp;MockPinger{ctrl: ctrl}
+        mock.recorder = &amp;MockPingerMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockPinger) EXPECT() *MockPingerMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Ping mocks base method.
+func (m *MockPinger) Ping(arg0 context.Context) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Ping", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Ping indicates an expected call of Ping.
+func (mr *MockPingerMockRecorder) Ping(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockPinger)(nil).Ping), arg0)
+}</span>
+
+// MockUpdater is a mock of Updater interface.
+type MockUpdater struct {
+        ctrl     *gomock.Controller
+        recorder *MockUpdaterMockRecorder
+        isgomock struct{}
+}
+
+// MockUpdaterMockRecorder is the mock recorder for MockUpdater.
+type MockUpdaterMockRecorder struct {
+        mock *MockUpdater
+}
+
+// NewMockUpdater creates a new mock instance.
+func NewMockUpdater(ctrl *gomock.Controller) *MockUpdater <span class="cov0" title="0">{
+        mock := &amp;MockUpdater{ctrl: ctrl}
+        mock.recorder = &amp;MockUpdaterMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockUpdater) EXPECT() *MockUpdaterMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Drop mocks base method.
+func (m *MockUpdater) Drop(arg0 context.Context) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Drop", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Drop indicates an expected call of Drop.
+func (mr *MockUpdaterMockRecorder) Drop(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Drop", reflect.TypeOf((*MockUpdater)(nil).Drop), arg0)
+}</span>
+
+// Stats mocks base method.
+func (m *MockUpdater) Stats(arg0 context.Context) (core.UpdateStats, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Stats", arg0)
+        ret0, _ := ret[0].(core.UpdateStats)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Stats indicates an expected call of Stats.
+func (mr *MockUpdaterMockRecorder) Stats(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Stats", reflect.TypeOf((*MockUpdater)(nil).Stats), arg0)
+}</span>
+
+// Status mocks base method.
+func (m *MockUpdater) Status(arg0 context.Context) (core.UpdateStatus, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Status", arg0)
+        ret0, _ := ret[0].(core.UpdateStatus)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Status indicates an expected call of Status.
+func (mr *MockUpdaterMockRecorder) Status(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Status", reflect.TypeOf((*MockUpdater)(nil).Status), arg0)
+}</span>
+
+// Update mocks base method.
+func (m *MockUpdater) Update(arg0 context.Context) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Update", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Update indicates an expected call of Update.
+func (mr *MockUpdaterMockRecorder) Update(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockUpdater)(nil).Update), arg0)
+}</span>
+
+// MockSearcher is a mock of Searcher interface.
+type MockSearcher struct {
+        ctrl     *gomock.Controller
+        recorder *MockSearcherMockRecorder
+        isgomock struct{}
+}
+
+// MockSearcherMockRecorder is the mock recorder for MockSearcher.
+type MockSearcherMockRecorder struct {
+        mock *MockSearcher
+}
+
+// NewMockSearcher creates a new mock instance.
+func NewMockSearcher(ctrl *gomock.Controller) *MockSearcher <span class="cov0" title="0">{
+        mock := &amp;MockSearcher{ctrl: ctrl}
+        mock.recorder = &amp;MockSearcherMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockSearcher) EXPECT() *MockSearcherMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// DbSearch mocks base method.
+func (m *MockSearcher) DbSearch(arg0 context.Context, arg1 int, arg2 string) ([]core.Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "DbSearch", arg0, arg1, arg2)
+        ret0, _ := ret[0].([]core.Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// DbSearch indicates an expected call of DbSearch.
+func (mr *MockSearcherMockRecorder) DbSearch(arg0, arg1, arg2 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DbSearch", reflect.TypeOf((*MockSearcher)(nil).DbSearch), arg0, arg1, arg2)
+}</span>
+
+// IndexSearch mocks base method.
+func (m *MockSearcher) IndexSearch(arg0 context.Context, arg1 int, arg2 string) ([]core.Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "IndexSearch", arg0, arg1, arg2)
+        ret0, _ := ret[0].([]core.Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// IndexSearch indicates an expected call of IndexSearch.
+func (mr *MockSearcherMockRecorder) IndexSearch(arg0, arg1, arg2 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IndexSearch", reflect.TypeOf((*MockSearcher)(nil).IndexSearch), arg0, arg1, arg2)
+}</span>
+</pre>
+		
+		<pre class="file" id="file8" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: yadro.com/course/proto/search (interfaces: SearchClient)
+//
+// Generated by this command:
+//
+//        mockgen -package mock_search -destination ./mocks/search.go yadro.com/course/proto/search SearchClient
+//
+
+// Package mock_search is a generated GoMock package.
+package mock_search
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        grpc "google.golang.org/grpc"
+        emptypb "google.golang.org/protobuf/types/known/emptypb"
+        search "yadro.com/course/proto/search"
+)
+
+// MockSearchClient is a mock of SearchClient interface.
+type MockSearchClient struct {
+        ctrl     *gomock.Controller
+        recorder *MockSearchClientMockRecorder
+        isgomock struct{}
+}
+
+// MockSearchClientMockRecorder is the mock recorder for MockSearchClient.
+type MockSearchClientMockRecorder struct {
+        mock *MockSearchClient
+}
+
+// NewMockSearchClient creates a new mock instance.
+func NewMockSearchClient(ctrl *gomock.Controller) *MockSearchClient <span class="cov0" title="0">{
+        mock := &amp;MockSearchClient{ctrl: ctrl}
+        mock.recorder = &amp;MockSearchClientMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockSearchClient) EXPECT() *MockSearchClientMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// DbSearch mocks base method.
+func (m *MockSearchClient) DbSearch(ctx context.Context, in *search.SearchRequest, opts ...grpc.CallOption) (*search.SearchReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "DbSearch", varargs...)
+        ret0, _ := ret[0].(*search.SearchReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// DbSearch indicates an expected call of DbSearch.
+func (mr *MockSearchClientMockRecorder) DbSearch(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DbSearch", reflect.TypeOf((*MockSearchClient)(nil).DbSearch), varargs...)
+}</span>
+
+// IndexSearch mocks base method.
+func (m *MockSearchClient) IndexSearch(ctx context.Context, in *search.SearchRequest, opts ...grpc.CallOption) (*search.SearchReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "IndexSearch", varargs...)
+        ret0, _ := ret[0].(*search.SearchReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// IndexSearch indicates an expected call of IndexSearch.
+func (mr *MockSearchClientMockRecorder) IndexSearch(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IndexSearch", reflect.TypeOf((*MockSearchClient)(nil).IndexSearch), varargs...)
+}</span>
+
+// Ping mocks base method.
+func (m *MockSearchClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Ping", varargs...)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Ping indicates an expected call of Ping.
+func (mr *MockSearchClientMockRecorder) Ping(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockSearchClient)(nil).Ping), varargs...)
+}</span>
+</pre>
+		
+		<pre class="file" id="file9" style="display: none">//go:generate mockgen -package mock_search -destination ./mocks/search.go "yadro.com/course/proto/search" SearchClient
+package search
+
+import (
+        "context"
+        "log/slog"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/credentials/insecure"
+        "google.golang.org/protobuf/types/known/emptypb"
+        "yadro.com/course/api/core"
+        searchpb "yadro.com/course/proto/search"
+)
+
+type Client struct {
+        log    *slog.Logger
+        client searchpb.SearchClient
+}
+
+func NewClient(address string, log *slog.Logger) (*Client, error) <span class="cov0" title="0">{
+        conn, err := grpc.NewClient(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">return &amp;Client{
+                client: searchpb.NewSearchClient(conn),
+                log:    log,
+        }, nil</span>
+}
+
+func (c Client) Ping(ctx context.Context) error <span class="cov1" title="1">{
+        if _, err := c.client.Ping(ctx, &amp;emptypb.Empty{}); err != nil </span><span class="cov0" title="0">{
+                c.log.Error("Ping", "error", err)
+                return err
+        }</span>
+
+        <span class="cov1" title="1">return nil</span>
+}
+
+func (c Client) DbSearch(ctx context.Context, limit int, phrase string) ([]core.Comics, error) <span class="cov6" title="2">{
+        c.log.Debug("DbSearch", "limit", limit, "phrase", phrase)
+
+        searchReply, err := c.client.DbSearch(ctx, &amp;searchpb.SearchRequest{Limit: int64(limit), Phrase: phrase})
+        if err != nil </span><span class="cov1" title="1">{
+                c.log.Error("Search", "error", err)
+                return nil, err
+        }</span>
+
+        <span class="cov1" title="1">comicsReply := searchReply.Comics
+
+        var comics []core.Comics
+        for _, x := range comicsReply </span><span class="cov6" title="2">{
+                comics = append(comics, core.Comics{ID: int(x.Id), URL: x.Url})
+        }</span>
+
+        <span class="cov1" title="1">return comics, nil</span>
+}
+
+func (c Client) IndexSearch(ctx context.Context, limit int, phrase string) ([]core.Comics, error) <span class="cov6" title="2">{
+        c.log.Debug("IndexSearch", "limit", limit, "phrase", phrase)
+
+        searchReply, err := c.client.IndexSearch(ctx, &amp;searchpb.SearchRequest{Limit: int64(limit), Phrase: phrase})
+        if err != nil </span><span class="cov1" title="1">{
+                c.log.Error("IndexSearch", "error", err)
+                return nil, err
+        }</span>
+
+        <span class="cov1" title="1">comicsReply := searchReply.Comics
+
+        var comics []core.Comics
+        for _, x := range comicsReply </span><span class="cov10" title="3">{
+                comics = append(comics, core.Comics{ID: int(x.Id), URL: x.Url})
+        }</span>
+
+        <span class="cov1" title="1">return comics, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file10" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: yadro.com/course/proto/update (interfaces: UpdateClient)
+//
+// Generated by this command:
+//
+//        mockgen -package mock_update -destination ./mocks/update.go yadro.com/course/proto/update UpdateClient
+//
+
+// Package mock_update is a generated GoMock package.
+package mock_update
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        grpc "google.golang.org/grpc"
+        emptypb "google.golang.org/protobuf/types/known/emptypb"
+        update "yadro.com/course/proto/update"
+)
+
+// MockUpdateClient is a mock of UpdateClient interface.
+type MockUpdateClient struct {
+        ctrl     *gomock.Controller
+        recorder *MockUpdateClientMockRecorder
+        isgomock struct{}
+}
+
+// MockUpdateClientMockRecorder is the mock recorder for MockUpdateClient.
+type MockUpdateClientMockRecorder struct {
+        mock *MockUpdateClient
+}
+
+// NewMockUpdateClient creates a new mock instance.
+func NewMockUpdateClient(ctrl *gomock.Controller) *MockUpdateClient <span class="cov0" title="0">{
+        mock := &amp;MockUpdateClient{ctrl: ctrl}
+        mock.recorder = &amp;MockUpdateClientMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockUpdateClient) EXPECT() *MockUpdateClientMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Drop mocks base method.
+func (m *MockUpdateClient) Drop(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Drop", varargs...)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Drop indicates an expected call of Drop.
+func (mr *MockUpdateClientMockRecorder) Drop(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Drop", reflect.TypeOf((*MockUpdateClient)(nil).Drop), varargs...)
+}</span>
+
+// Ping mocks base method.
+func (m *MockUpdateClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Ping", varargs...)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Ping indicates an expected call of Ping.
+func (mr *MockUpdateClientMockRecorder) Ping(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockUpdateClient)(nil).Ping), varargs...)
+}</span>
+
+// Stats mocks base method.
+func (m *MockUpdateClient) Stats(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*update.StatsReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Stats", varargs...)
+        ret0, _ := ret[0].(*update.StatsReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Stats indicates an expected call of Stats.
+func (mr *MockUpdateClientMockRecorder) Stats(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Stats", reflect.TypeOf((*MockUpdateClient)(nil).Stats), varargs...)
+}</span>
+
+// Status mocks base method.
+func (m *MockUpdateClient) Status(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*update.StatusReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Status", varargs...)
+        ret0, _ := ret[0].(*update.StatusReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Status indicates an expected call of Status.
+func (mr *MockUpdateClientMockRecorder) Status(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Status", reflect.TypeOf((*MockUpdateClient)(nil).Status), varargs...)
+}</span>
+
+// Update mocks base method.
+func (m *MockUpdateClient) Update(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Update", varargs...)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Update indicates an expected call of Update.
+func (mr *MockUpdateClientMockRecorder) Update(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockUpdateClient)(nil).Update), varargs...)
+}</span>
+</pre>
+		
+		<pre class="file" id="file11" style="display: none">//go:generate mockgen -package mock_update -destination ./mocks/update.go "yadro.com/course/proto/update" UpdateClient
+package update
+
+import (
+        "context"
+        "log/slog"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/credentials/insecure"
+        "google.golang.org/protobuf/types/known/emptypb"
+        "yadro.com/course/api/core"
+        updatepb "yadro.com/course/proto/update"
+)
+
+type Client struct {
+        log    *slog.Logger
+        client updatepb.UpdateClient
+}
+
+func NewClient(address string, log *slog.Logger) (*Client, error) <span class="cov0" title="0">{
+        conn, err := grpc.NewClient(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">return &amp;Client{
+                client: updatepb.NewUpdateClient(conn),
+                log:    log,
+        }, nil</span>
+}
+
+func (c Client) Ping(ctx context.Context) error <span class="cov1" title="1">{
+        if _, err := c.client.Ping(ctx, &amp;emptypb.Empty{}); err != nil </span><span class="cov0" title="0">{
+                c.log.Error("Ping", "error", err)
+                return err
+        }</span>
+
+        <span class="cov1" title="1">return nil</span>
+}
+
+func (c Client) Status(ctx context.Context) (core.UpdateStatus, error) <span class="cov10" title="4">{
+        statusReply, err := c.client.Status(ctx, &amp;emptypb.Empty{})
+        if err != nil </span><span class="cov1" title="1">{
+                c.log.Error("Status", "", err)
+                return "", err
+        }</span>
+
+        <span class="cov8" title="3">var status core.UpdateStatus
+
+        switch statusReply.Status </span>{
+        case updatepb.Status_STATUS_IDLE:<span class="cov1" title="1">
+                status = core.StatusUpdateIdle</span>
+        case updatepb.Status_STATUS_RUNNING:<span class="cov1" title="1">
+                status = core.StatusUpdateRunning</span>
+        default:<span class="cov1" title="1">
+                status = core.StatusUpdateUnknown</span>
+        }
+
+        <span class="cov8" title="3">return status, nil</span>
+}
+
+func (c Client) Stats(ctx context.Context) (core.UpdateStats, error) <span class="cov1" title="1">{
+        statsReply, err := c.client.Stats(ctx, &amp;emptypb.Empty{})
+
+        if err != nil </span><span class="cov0" title="0">{
+                c.log.Error("Stats", "error", err)
+                return core.UpdateStats{}, err
+        }</span>
+
+        <span class="cov1" title="1">return core.UpdateStats{
+                WordsTotal:    int(statsReply.WordsTotal),
+                WordsUnique:   int(statsReply.WordsUnique),
+                ComicsTotal:   int(statsReply.ComicsTotal),
+                ComicsFetched: int(statsReply.ComicsFetched),
+        }, nil</span>
+}
+
+func (c Client) Update(ctx context.Context) error <span class="cov1" title="1">{
+        _, err := c.client.Update(ctx, &amp;emptypb.Empty{})
+        return err
+}</span>
+
+func (c Client) Drop(ctx context.Context) error <span class="cov1" title="1">{
+        _, err := c.client.Drop(ctx, &amp;emptypb.Empty{})
+        return err
+}</span>
+</pre>
+		
+		<pre class="file" id="file12" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: yadro.com/course/proto/words (interfaces: WordsClient)
+//
+// Generated by this command:
+//
+//        mockgen -destination ./mocks/words.go -package mock_words yadro.com/course/proto/words WordsClient
+//
+
+// Package mock_words is a generated GoMock package.
+package mock_words
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        grpc "google.golang.org/grpc"
+        emptypb "google.golang.org/protobuf/types/known/emptypb"
+        words "yadro.com/course/proto/words"
+)
+
+// MockWordsClient is a mock of WordsClient interface.
+type MockWordsClient struct {
+        ctrl     *gomock.Controller
+        recorder *MockWordsClientMockRecorder
+        isgomock struct{}
+}
+
+// MockWordsClientMockRecorder is the mock recorder for MockWordsClient.
+type MockWordsClientMockRecorder struct {
+        mock *MockWordsClient
+}
+
+// NewMockWordsClient creates a new mock instance.
+func NewMockWordsClient(ctrl *gomock.Controller) *MockWordsClient <span class="cov0" title="0">{
+        mock := &amp;MockWordsClient{ctrl: ctrl}
+        mock.recorder = &amp;MockWordsClientMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockWordsClient) EXPECT() *MockWordsClientMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockWordsClient) Norm(ctx context.Context, in *words.WordsRequest, opts ...grpc.CallOption) (*words.WordsReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Norm", varargs...)
+        ret0, _ := ret[0].(*words.WordsReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Norm indicates an expected call of Norm.
+func (mr *MockWordsClientMockRecorder) Norm(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockWordsClient)(nil).Norm), varargs...)
+}</span>
+
+// Ping mocks base method.
+func (m *MockWordsClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Ping", varargs...)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Ping indicates an expected call of Ping.
+func (mr *MockWordsClientMockRecorder) Ping(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockWordsClient)(nil).Ping), varargs...)
+}</span>
+</pre>
+		
+		<pre class="file" id="file13" style="display: none">//go:generate mockgen -destination ./mocks/words.go -package mock_words yadro.com/course/proto/words WordsClient
+package words
+
+import (
+        "context"
+        "log/slog"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/credentials/insecure"
+        "google.golang.org/protobuf/types/known/emptypb"
+        wordspb "yadro.com/course/proto/words"
+)
+
+type Client struct {
+        log    *slog.Logger
+        client wordspb.WordsClient
+}
+
+func NewClient(address string, log *slog.Logger) (*Client, error) <span class="cov0" title="0">{
+        conn, err := grpc.NewClient(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">return &amp;Client{
+                client: wordspb.NewWordsClient(conn),
+                log:    log,
+        }, nil</span>
+}
+
+func (c Client) Norm(ctx context.Context, phrase string) ([]string, error) <span class="cov10" title="2">{
+        req := &amp;wordspb.WordsRequest{
+                Phrase: phrase,
+        }
+
+        resp, err := c.client.Norm(ctx, req)
+        if err != nil </span><span class="cov1" title="1">{
+                c.log.Error("failed to normalize phrase", "error", err, "phrase", phrase)
+                return nil, err
+        }</span>
+
+        <span class="cov1" title="1">return resp.Words, nil</span>
+}
+
+func (c Client) Ping(ctx context.Context) error <span class="cov1" title="1">{
+        if _, err := c.client.Ping(ctx, &amp;emptypb.Empty{}); err != nil </span><span class="cov0" title="0">{
+                c.log.Error("failed to ping words service", "error", err)
+                return err
+        }</span>
+        <span class="cov1" title="1">return nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file14" style="display: none">package config
+
+import (
+        "time"
+
+        "github.com/ilyakaznacheev/cleanenv"
+)
+
+type HTTPConfig struct {
+        Address string        `yaml:"address" env:"API_ADDRESS" env-default:"localhost:8080"`
+        Timeout time.Duration `yaml:"timeout" env:"API_TIMEOUT" env-default:"5s"`
+}
+
+type Config struct {
+        LogLevel          string        `yaml:"log_level" env:"LOG_LEVEL" env-default:"DEBUG"`
+        SearchConcurrency int           `yaml:"search_concurrency" env:"SEARCH_CONCURRENCY" env-default:"1"`
+        SearchRate        int           `yaml:"search_rate" env:"SEARCH_RATE" env-default:"1"`
+        WordsAddress      string        `yaml:"words_address" env:"WORDS_ADDRESS" env-default:"words:8081"`
+        UpdateAddress     string        `yaml:"update_address" env:"UPDATE_ADDRESS" env-default:"update:8082"`
+        SearchAddress     string        `yaml:"search_address" env:"SEARCH_ADDRESS" env-default:"search:8083"`
+        TokenTTL          time.Duration `yaml:"token_ttl" env:"TOKEN_TTL" env-default:"24h"`
+        HTTPConfig        `yaml:"api_server"`
+}
+
+func MustLoad(configPath string) Config <span class="cov8" title="1">{
+        var cfg Config
+        if err := cleanenv.ReadConfig(configPath, &amp;cfg); err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov8" title="1">return cfg</span>
+}
+</pre>
+		
+		<pre class="file" id="file15" style="display: none">package config
+
+import (
+        "time"
+
+        "github.com/ilyakaznacheev/cleanenv"
+)
+
+type HTTPConfig struct {
+        Address string        `yaml:"address" env:"FRONTEND_ADDRESS" env-default:"localhost:8080"`
+        Timeout time.Duration `yaml:"timeout" env:"FRONTEND_TIMEOUT" env-default:"5s"`
+}
+
+type Config struct {
+        LogLevel    string `yaml:"log_level" env:"LOG_LEVEL" env-default:"DEBUG"`
+        Api_address string `yaml:"api_address" env:"API_ADDRESS" env-default:"localhost:8080"`
+        HTTPConfig  `yaml:"frontend_server"`
+}
+
+func MustLoad(configPath string) Config <span class="cov0" title="0">{
+        var cfg Config
+        if err := cleanenv.ReadConfig(configPath, &amp;cfg); err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov0" title="0">return cfg</span>
+}
+</pre>
+		
+		<pre class="file" id="file16" style="display: none">package handler
+
+import (
+        "bytes"
+        "encoding/json"
+        "errors"
+        "html/template"
+        "io"
+        "log/slog"
+        "net/http"
+        "strconv"
+        "time"
+
+        "yadro.com/course/frontend/model"
+)
+
+func HandlerRoot() http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                tmpl, err := template.ParseFiles("templates/index.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func HadlerSearch(client *http.Client, api_address string, log *slog.Logger) http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                phrase := r.URL.Query().Get("phrase")
+                limit := r.URL.Query().Get("limit")
+
+                indexStr := r.URL.Query().Get("index")
+                if indexStr == "" </span><span class="cov0" title="0">{
+                        indexStr = "0"
+                }</span>
+
+                <span class="cov0" title="0">index, err := strconv.Atoi(indexStr)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, "Не смогли достать index", http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">log.Debug("HandlerSearch", "phrase", phrase, "limit", limit, "index", index)
+
+                results, err := searchComics(client, api_address, phrase, limit)
+                if err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerSearch", "error", err)
+                        http.Error(w, "Не удалось найти картинки", http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">data := model.TemplateData{
+                        Phrase:       phrase,
+                        Comics:       results.Comics,
+                        Total:        results.Total,
+                        CurrentIndex: index,
+                }
+
+                log.Debug("HandlerSearch", "data", data)
+
+                tmpl := template.New("search.html").Funcs(template.FuncMap{
+                        "add": func(a, b int) int </span><span class="cov0" title="0">{ return a + b }</span>,
+                        "sub": func(a, b int) int <span class="cov0" title="0">{ return a - b }</span>,
+                })
+
+                <span class="cov0" title="0">tmpl, err = tmpl.ParseFiles("templates/search/search.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">err = tmpl.Execute(w, data)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func HandlerLogin() http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                tmpl, err := template.ParseFiles("templates/login/login.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func HandlerAuth(client *http.Client, api_address string, log *slog.Logger) http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                if err := r.ParseForm(); err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, "Ошибка парсинга формы", http.StatusBadRequest)
+                        return
+                }</span>
+                <span class="cov0" title="0">username := r.FormValue("username")
+                password := r.FormValue("password")
+
+                data := model.AuthInfo{
+                        Name:     username,
+                        Password: password,
+                }
+
+                log.Debug("HandlerAuth", "username", username, "passwords", password)
+
+                token, err := getToken(client, api_address, data)
+
+                if err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerAuth", "error", err)
+
+                        tmpl, err := template.ParseFiles("templates/auth/authorized_error.html")
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, "Не смогли открыть страничку 401", http.StatusInternalServerError)
+                                return
+                        }</span>
+
+                        <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, err.Error(), http.StatusInternalServerError)
+                        }</span>
+                        <span class="cov0" title="0">return</span>
+                }
+
+                <span class="cov0" title="0">http.SetCookie(w, &amp;http.Cookie{
+                        Name:     "token",
+                        Value:    token,
+                        Path:     "/",
+                        Expires:  time.Now().Add(24 * time.Hour),
+                        HttpOnly: true,
+                })
+
+                tmpl, err := template.ParseFiles("templates/login/success.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func HandlerStats(client *http.Client, api_address string, log *slog.Logger) http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                var stats model.StatsResponse
+
+                resp, err := client.Get(api_address + "/api/db/stats")
+                if err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerStats", "error", err)
+                        http.Error(w, "Не удалось получить статистику", http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">defer resp.Body.Close()
+
+                if err := json.NewDecoder(resp.Body).Decode(&amp;stats); err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerStats", "error", err)
+                        http.Error(w, "Не удалось получить статистику", http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">log.Debug("HandlerStats", "stats", stats)
+
+                tmpl, err := template.ParseFiles("templates/stats/stats.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">err = tmpl.Execute(w, stats)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func HandlerStatus(client *http.Client, api_address string, log *slog.Logger) http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                var status model.Status
+
+                resp, err := client.Get(api_address + "/api/db/status")
+                if err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerStatus", "error", err)
+                        http.Error(w, "Не удалось получить статус", http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">defer resp.Body.Close()
+
+                if err := json.NewDecoder(resp.Body).Decode(&amp;status); err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerStatus", "error", err)
+                        http.Error(w, "Не удалось получить статус", http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">tmpl, err := template.ParseFiles("templates/status/status.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">err = tmpl.Execute(w, status)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func HandlerDrop(client *http.Client, apiAddress string, log *slog.Logger) http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                cookie, err := r.Cookie("token")
+                if err != nil </span><span class="cov0" title="0">{
+                        tmpl, err := template.ParseFiles("templates/auth/unauthorized.html")
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, err.Error(), http.StatusInternalServerError)
+                                return
+                        }</span>
+                        <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, err.Error(), http.StatusInternalServerError)
+                        }</span>
+                        <span class="cov0" title="0">return</span>
+                }
+
+                <span class="cov0" title="0">req, err := http.NewRequest(http.MethodDelete, apiAddress+"/api/db", nil)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, "Ошибка создания запроса", http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">req.Header.Set("Authorization", "Token "+cookie.Value)
+
+                resp, err := client.Do(req)
+                if err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerDrop", "error", err)
+                        http.Error(w, "Ошибка при запросе к сервису удаления", http.StatusBadGateway)
+                        return
+                }</span>
+                <span class="cov0" title="0">defer resp.Body.Close()
+
+                if resp.StatusCode == http.StatusForbidden || resp.StatusCode == http.StatusUnauthorized </span><span class="cov0" title="0">{
+                        tmpl, err := template.ParseFiles("templates/auth/unauthorized.html")
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, "Не удалось открыть страницу недостаточно прав", http.StatusInternalServerError)
+                                return
+                        }</span>
+                        <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, err.Error(), http.StatusInternalServerError)
+                        }</span>
+                        <span class="cov0" title="0">return</span>
+                }
+
+                <span class="cov0" title="0">if resp.StatusCode != http.StatusOK </span><span class="cov0" title="0">{
+                        http.Error(w, "Ошибка при удалении", http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">tmpl, err := template.ParseFiles("templates/drop/drop.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, "Не удалось открыть страницу успеха", http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func HandlerUpdate(client *http.Client, apiAddress string, log *slog.Logger) http.HandlerFunc <span class="cov0" title="0">{
+        return func(w http.ResponseWriter, r *http.Request) </span><span class="cov0" title="0">{
+                cookie, err := r.Cookie("token")
+                if err != nil </span><span class="cov0" title="0">{
+                        tmpl, err := template.ParseFiles("templates/auth/unauthorized.html")
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, err.Error(), http.StatusInternalServerError)
+                                return
+                        }</span>
+                        <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, err.Error(), http.StatusInternalServerError)
+                        }</span>
+                        <span class="cov0" title="0">return</span>
+                }
+
+                <span class="cov0" title="0">req, err := http.NewRequest(http.MethodPost, apiAddress+"/api/db/update", nil)
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, "Ошибка создания запроса", http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">req.Header.Set("Authorization", "Token "+cookie.Value)
+
+                resp, err := client.Do(req)
+                if err != nil </span><span class="cov0" title="0">{
+                        log.Error("HandlerUpdate", "error", err)
+                        http.Error(w, "Ошибка при запросе к сервису обновления", http.StatusBadGateway)
+                        return
+                }</span>
+                <span class="cov0" title="0">defer resp.Body.Close()
+
+                if resp.StatusCode == http.StatusForbidden || resp.StatusCode == http.StatusUnauthorized </span><span class="cov0" title="0">{
+                        tmpl, err := template.ParseFiles("templates/auth/unauthorized.html")
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, "Не удалось открыть страницу недостаточно прав", http.StatusInternalServerError)
+                                return
+                        }</span>
+                        <span class="cov0" title="0">err = tmpl.Execute(w, nil)
+                        if err != nil </span><span class="cov0" title="0">{
+                                http.Error(w, err.Error(), http.StatusInternalServerError)
+                        }</span>
+                        <span class="cov0" title="0">return</span>
+                }
+
+                <span class="cov0" title="0">if resp.StatusCode != http.StatusOK &amp;&amp; resp.StatusCode != http.StatusAccepted </span><span class="cov0" title="0">{
+                        http.Error(w, "Ошибка при обновлении", http.StatusInternalServerError)
+                        return
+                }</span>
+
+                <span class="cov0" title="0">tmpl, err := template.ParseFiles("templates/update/update.html")
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, "Не удалось открыть страницу успеха", http.StatusInternalServerError)
+                        return
+                }</span>
+                <span class="cov0" title="0">err = tmpl.Execute(w, struct {
+                        Code int
+                }{Code: resp.StatusCode})
+
+                if err != nil </span><span class="cov0" title="0">{
+                        http.Error(w, err.Error(), http.StatusInternalServerError)
+                }</span>
+        }
+}
+
+func searchComics(client *http.Client, api_address, phrase, limit string) (model.ComicsResponse, error) <span class="cov0" title="0">{
+        resp, err := client.Get(api_address + "/api/search?" + "limit=" + limit + "&amp;phrase=" + phrase)
+        if err != nil </span><span class="cov0" title="0">{
+                return model.ComicsResponse{}, err
+        }</span>
+
+        <span class="cov0" title="0">var comicsResp model.ComicsResponse
+
+        if err := json.NewDecoder(resp.Body).Decode(&amp;comicsResp); err != nil </span><span class="cov0" title="0">{
+                return model.ComicsResponse{}, err
+        }</span>
+
+        <span class="cov0" title="0">return comicsResp, nil</span>
+}
+
+func getToken(client *http.Client, api_address string, data model.AuthInfo) (string, error) <span class="cov0" title="0">{
+        jsonData, err := json.Marshal(data)
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+
+        <span class="cov0" title="0">req, err := http.NewRequest(http.MethodPost, api_address+"/api/login", bytes.NewBuffer(jsonData))
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+
+        <span class="cov0" title="0">resp, err := client.Do(req)
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+
+        <span class="cov0" title="0">if resp.StatusCode != http.StatusOK </span><span class="cov0" title="0">{
+                return "", errors.New("код ответа не 200")
+        }</span>
+
+        <span class="cov0" title="0">defer resp.Body.Close()
+
+        bytes, err := io.ReadAll(resp.Body)
+        if err != nil </span><span class="cov0" title="0">{
+                return "", err
+        }</span>
+
+        <span class="cov0" title="0">token := string(bytes)
+
+        return token, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file17" style="display: none">package main
+
+import (
+        "flag"
+        "log/slog"
+        "net/http"
+        "os"
+
+        "yadro.com/course/frontend/config"
+        "yadro.com/course/frontend/handler"
+)
+
+func main() <span class="cov0" title="0">{
+        var configPath string
+        flag.StringVar(&amp;configPath, "config", "config.yaml", "server configuration file")
+        flag.Parse()
+
+        cfg := config.MustLoad(configPath)
+
+        log := mustMakeLogger(cfg.LogLevel)
+
+        log.Info("starting server")
+        log.Debug("debug messages are enabled")
+
+        mux := http.NewServeMux()
+
+        fs := http.FileServer(http.Dir("static"))
+        mux.Handle("GET /static/", http.StripPrefix("/static/", fs))
+
+        mux.HandleFunc("/", handler.HandlerRoot())
+
+        mux.HandleFunc("GET /search", handler.HadlerSearch(http.DefaultClient, cfg.Api_address, log))
+
+        mux.HandleFunc("GET /login", handler.HandlerLogin())
+
+        mux.HandleFunc("POST /login", handler.HandlerAuth(http.DefaultClient, cfg.Api_address, log))
+
+        mux.HandleFunc("GET /stats", handler.HandlerStats(http.DefaultClient, cfg.Api_address, log))
+
+        mux.HandleFunc("GET /status", handler.HandlerStatus(http.DefaultClient, cfg.Api_address, log))
+
+        mux.HandleFunc("GET /drop", handler.HandlerDrop(http.DefaultClient, cfg.Api_address, log))
+
+        mux.HandleFunc("GET /update", handler.HandlerUpdate(http.DefaultClient, cfg.Api_address, log))
+
+        server := &amp;http.Server{
+                Addr:    cfg.Address,
+                Handler: mux,
+        }
+
+        if err := server.ListenAndServe(); err != nil &amp;&amp; err != http.ErrServerClosed </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+}
+
+func mustMakeLogger(logLevel string) *slog.Logger <span class="cov0" title="0">{
+        var level slog.Level
+        switch logLevel </span>{
+        case "DEBUG":<span class="cov0" title="0">
+                level = slog.LevelDebug</span>
+        case "INFO":<span class="cov0" title="0">
+                level = slog.LevelInfo</span>
+        case "ERROR":<span class="cov0" title="0">
+                level = slog.LevelError</span>
+        default:<span class="cov0" title="0">
+                panic("unknown log level: " + logLevel)</span>
+        }
+        <span class="cov0" title="0">handler := slog.NewTextHandler(os.Stderr, &amp;slog.HandlerOptions{Level: level, AddSource: true})
+        return slog.New(handler)</span>
+}
+</pre>
+		
+		<pre class="file" id="file18" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ./storage.go
+//
+// Generated by this command:
+//
+//        mockgen -source ./storage.go -destination=./mocks/storage.go -package=mock_dbops
+//
+
+// Package mock_dbops is a generated GoMock package.
+package mock_dbops
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+)
+
+// MockDBops is a mock of DBops interface.
+type MockDBops struct {
+        ctrl     *gomock.Controller
+        recorder *MockDBopsMockRecorder
+        isgomock struct{}
+}
+
+// MockDBopsMockRecorder is the mock recorder for MockDBops.
+type MockDBopsMockRecorder struct {
+        mock *MockDBops
+}
+
+// NewMockDBops creates a new mock instance.
+func NewMockDBops(ctrl *gomock.Controller) *MockDBops <span class="cov0" title="0">{
+        mock := &amp;MockDBops{ctrl: ctrl}
+        mock.recorder = &amp;MockDBopsMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockDBops) EXPECT() *MockDBopsMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// GetContext mocks base method.
+func (m *MockDBops) GetContext(arg0 context.Context, arg1 any, arg2 string, arg3 ...any) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{arg0, arg1, arg2}
+        for _, a := range arg3 </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "GetContext", varargs...)
+        ret0, _ := ret[0].(error)
+        return ret0</span>
+}
+
+// GetContext indicates an expected call of GetContext.
+func (mr *MockDBopsMockRecorder) GetContext(arg0, arg1, arg2 any, arg3 ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{arg0, arg1, arg2}, arg3...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetContext", reflect.TypeOf((*MockDBops)(nil).GetContext), varargs...)
+}</span>
+
+// SelectContext mocks base method.
+func (m *MockDBops) SelectContext(arg0 context.Context, arg1 any, arg2 string, arg3 ...any) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{arg0, arg1, arg2}
+        for _, a := range arg3 </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "SelectContext", varargs...)
+        ret0, _ := ret[0].(error)
+        return ret0</span>
+}
+
+// SelectContext indicates an expected call of SelectContext.
+func (mr *MockDBopsMockRecorder) SelectContext(arg0, arg1, arg2 any, arg3 ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{arg0, arg1, arg2}, arg3...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SelectContext", reflect.TypeOf((*MockDBops)(nil).SelectContext), varargs...)
+}</span>
+</pre>
+		
+		<pre class="file" id="file19" style="display: none">//go:generate mockgen -source ./storage.go -destination=./mocks/storage.go -package=mock_dbops
+package db
+
+import (
+        "context"
+        "fmt"
+        "log/slog"
+
+        "github.com/jackc/pgtype"
+        _ "github.com/jackc/pgx/v5/stdlib"
+        "github.com/jmoiron/sqlx"
+        "yadro.com/course/search/core"
+)
+
+type DB struct {
+        log  *slog.Logger
+        conn DBops
+}
+
+type DBops interface {
+        SelectContext(context.Context, interface{}, string, ...interface{}) error
+        GetContext(context.Context, interface{}, string, ...interface{}) error
+}
+
+func New(log *slog.Logger, address string) (*DB, error) <span class="cov0" title="0">{
+
+        db, err := sqlx.Connect("pgx", address)
+        if err != nil </span><span class="cov0" title="0">{
+                log.Error("connection problem", "address", address, "error", err)
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">return &amp;DB{
+                log:  log,
+                conn: db,
+        }, nil</span>
+}
+
+func (db *DB) SearchByWord(ctx context.Context, keyword string) ([]int, error) <span class="cov10" title="2">{
+        query := `
+        SELECT comics_id 
+        FROM comics
+        WHERE $1 = ANY(keywords)
+        `
+
+        var IDs []int
+        err := db.conn.SelectContext(
+                ctx,
+                &amp;IDs,
+                query,
+                keyword,
+        )
+
+        return IDs, err
+}</span>
+
+type comicRow struct {
+        ID       int              `db:"comics_id"`
+        Keywords pgtype.TextArray `db:"keywords"`
+        URL      string           `db:"img_url"`
+}
+
+func (db *DB) FetchComics(ctx context.Context, id int) (core.Comics, []string, error) <span class="cov10" title="2">{
+        query := `
+        SELECT comics_id, img_url, keywords 
+        FROM comics 
+        WHERE comics_id = $1
+    `
+
+        var res comicRow
+
+        err := db.conn.GetContext(ctx, &amp;res, query, id)
+        if err != nil </span><span class="cov1" title="1">{
+                db.log.Error("Fetch keywords error", "error", err, "id", id)
+                return core.Comics{}, nil, fmt.Errorf("fetch keywords: %w", err)
+        }</span>
+
+        <span class="cov1" title="1">var keywords []string
+
+        if err := res.Keywords.AssignTo(&amp;keywords); err != nil </span><span class="cov0" title="0">{
+                return core.Comics{}, nil, fmt.Errorf("convert keywords: %w", err)
+        }</span>
+
+        <span class="cov1" title="1">return core.Comics{ID: res.ID, URL: res.URL}, keywords, nil</span>
+}
+
+func (db *DB) GetMaxID(ctx context.Context) (int, error) <span class="cov10" title="2">{
+        query := `
+        SELECT COALESCE(MAX(comics_id), 0)
+        FROM comics
+        `
+        var maxID int
+        err := db.conn.GetContext(ctx, &amp;maxID, query)
+        return maxID, err
+}</span>
+
+type comicsInf struct {
+        ID  int    `db:"comics_id"`
+        URL string `db:"img_url"`
+}
+
+func (db *DB) GetComics(ctx context.Context, id int) (core.Comics, error) <span class="cov10" title="2">{
+        query := `
+        SELECT comics_id, img_url
+        FROM comics
+        WHERE comics_id = $1
+        `
+
+        var comics comicsInf
+
+        err := db.conn.GetContext(ctx, &amp;comics, query, id)
+
+        return core.Comics{ID: comics.ID, URL: comics.URL}, err
+}</span>
+</pre>
+		
+		<pre class="file" id="file20" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: yadro.com/course/search/core (interfaces: Searcher)
+//
+// Generated by this command:
+//
+//        mockgen -package mock_grpc -destination ./mocks/grpc.go yadro.com/course/search/core Searcher
+//
+
+// Package mock_grpc is a generated GoMock package.
+package mock_grpc
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        core "yadro.com/course/search/core"
+)
+
+// MockSearcher is a mock of Searcher interface.
+type MockSearcher struct {
+        ctrl     *gomock.Controller
+        recorder *MockSearcherMockRecorder
+        isgomock struct{}
+}
+
+// MockSearcherMockRecorder is the mock recorder for MockSearcher.
+type MockSearcherMockRecorder struct {
+        mock *MockSearcher
+}
+
+// NewMockSearcher creates a new mock instance.
+func NewMockSearcher(ctrl *gomock.Controller) *MockSearcher <span class="cov0" title="0">{
+        mock := &amp;MockSearcher{ctrl: ctrl}
+        mock.recorder = &amp;MockSearcherMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockSearcher) EXPECT() *MockSearcherMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// DbSearch mocks base method.
+func (m *MockSearcher) DbSearch(arg0 context.Context, arg1 int, arg2 string) ([]core.Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "DbSearch", arg0, arg1, arg2)
+        ret0, _ := ret[0].([]core.Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// DbSearch indicates an expected call of DbSearch.
+func (mr *MockSearcherMockRecorder) DbSearch(arg0, arg1, arg2 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DbSearch", reflect.TypeOf((*MockSearcher)(nil).DbSearch), arg0, arg1, arg2)
+}</span>
+
+// IndexSearch mocks base method.
+func (m *MockSearcher) IndexSearch(arg0 context.Context, arg1 int, arg2 string) ([]core.Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "IndexSearch", arg0, arg1, arg2)
+        ret0, _ := ret[0].([]core.Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// IndexSearch indicates an expected call of IndexSearch.
+func (mr *MockSearcherMockRecorder) IndexSearch(arg0, arg1, arg2 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IndexSearch", reflect.TypeOf((*MockSearcher)(nil).IndexSearch), arg0, arg1, arg2)
+}</span>
+</pre>
+		
+		<pre class="file" id="file21" style="display: none">//go:generate mockgen -package mock_grpc -destination ./mocks/grpc.go "yadro.com/course/search/core" Searcher
+package grpc
+
+import (
+        "context"
+
+        "google.golang.org/protobuf/types/known/emptypb"
+        searchpb "yadro.com/course/proto/search"
+        "yadro.com/course/search/core"
+)
+
+type Server struct {
+        searchpb.UnimplementedSearchServer
+        service core.Searcher
+}
+
+func NewServer(service core.Searcher) *Server <span class="cov10" title="3">{
+        return &amp;Server{service: service}
+}</span>
+
+func (s *Server) Ping(_ context.Context, _ *emptypb.Empty) (*emptypb.Empty, error) <span class="cov1" title="1">{
+        return nil, nil
+}</span>
+
+func (s *Server) DbSearch(ctx context.Context, in *searchpb.SearchRequest) (*searchpb.SearchReply, error) <span class="cov1" title="1">{
+        comics, err := s.service.DbSearch(ctx, int(in.GetLimit()), in.GetPhrase())
+        if err != nil </span><span class="cov0" title="0">{
+                return &amp;searchpb.SearchReply{}, err
+        }</span>
+
+        <span class="cov1" title="1">comicsResponse := make([]*searchpb.Comics, 0, len(comics))
+
+        for _, x := range comics </span><span class="cov6" title="2">{
+                comicsResponse = append(comicsResponse, &amp;searchpb.Comics{Id: int64(x.ID), Url: x.URL})
+        }</span>
+
+        <span class="cov1" title="1">return &amp;searchpb.SearchReply{Comics: comicsResponse}, nil</span>
+}
+
+func (s *Server) IndexSearch(ctx context.Context, in *searchpb.SearchRequest) (*searchpb.SearchReply, error) <span class="cov1" title="1">{
+        comics, err := s.service.IndexSearch(ctx, int(in.GetLimit()), in.GetPhrase())
+        if err != nil </span><span class="cov0" title="0">{
+                return &amp;searchpb.SearchReply{}, err
+        }</span>
+
+        <span class="cov1" title="1">comicsResponse := make([]*searchpb.Comics, 0, len(comics))
+
+        for _, x := range comics </span><span class="cov10" title="3">{
+                comicsResponse = append(comicsResponse, &amp;searchpb.Comics{Id: int64(x.ID), Url: x.URL})
+        }</span>
+
+        <span class="cov1" title="1">return &amp;searchpb.SearchReply{Comics: comicsResponse}, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file22" style="display: none">//go:generate mockgen -package mock_index -destination ./mocks/index.go yadro.com/course/search/core Builder
+package index
+
+import (
+        "context"
+        "log/slog"
+        "time"
+
+        "yadro.com/course/search/core"
+)
+
+type Index struct {
+        log        *slog.Logger
+        builder    core.Builder
+        ttl        time.Duration
+        wordToID   map[string][]int
+        idToComics map[int]core.Comics
+}
+
+func NewIndex(log *slog.Logger, builder core.Builder, ttl time.Duration) (*Index, error) <span class="cov10" title="3">{
+        return &amp;Index{
+                log:        log,
+                builder:    builder,
+                ttl:        ttl,
+                wordToID:   make(map[string][]int),
+                idToComics: make(map[int]core.Comics),
+        }, nil
+}</span>
+
+func (i *Index) SearchByWord(_ context.Context, word string) ([]int, error) <span class="cov6" title="2">{
+        IDs := make([]int, 0)
+
+        IDs = append(IDs, i.wordToID[word]...)
+
+        return IDs, nil
+}</span>
+
+func (i *Index) GetComics(_ context.Context, id int) (core.Comics, error) <span class="cov6" title="2">{
+        comics, ok := i.idToComics[id]
+        if ok </span><span class="cov1" title="1">{
+                return comics, nil
+        }</span>
+        <span class="cov1" title="1">return core.Comics{}, core.ErrNotFound</span>
+}
+
+func (i *Index) Start(ctx context.Context) <span class="cov0" title="0">{
+        wordToID, idToComics, err := i.builder.BuildIndex(ctx)
+        if err != nil </span><span class="cov0" title="0">{
+                i.log.Error("First builder index initiator failed", "error", err)
+        }</span>
+
+        <span class="cov0" title="0">i.wordToID = wordToID
+        i.idToComics = idToComics
+
+        i.log.Info("Start index initiator")
+
+        ticker := time.NewTicker(i.ttl)
+        go func() </span><span class="cov0" title="0">{
+                for </span><span class="cov0" title="0">{
+                        select </span>{
+                        case &lt;-ticker.C:<span class="cov0" title="0">
+                                if wordToID, idToComics, err = i.builder.BuildIndex(ctx); err != nil </span><span class="cov0" title="0">{
+                                        i.log.Error("Index build failed", "error", err)
+                                }</span> else<span class="cov0" title="0"> {
+                                        i.wordToID = wordToID
+                                        i.idToComics = idToComics
+                                        i.log.Info("Index build complete")
+                                }</span>
+                        case &lt;-ctx.Done():<span class="cov0" title="0">
+                                i.log.Info("Index initiator stopped")
+                                return</span>
+                        }
+                }
+        }()
+}
+</pre>
+		
+		<pre class="file" id="file23" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: yadro.com/course/search/core (interfaces: Builder)
+//
+// Generated by this command:
+//
+//        mockgen -package mock_index -destination ./mocks/index.go yadro.com/course/search/core Builder
+//
+
+// Package mock_index is a generated GoMock package.
+package mock_index
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        core "yadro.com/course/search/core"
+)
+
+// MockBuilder is a mock of Builder interface.
+type MockBuilder struct {
+        ctrl     *gomock.Controller
+        recorder *MockBuilderMockRecorder
+        isgomock struct{}
+}
+
+// MockBuilderMockRecorder is the mock recorder for MockBuilder.
+type MockBuilderMockRecorder struct {
+        mock *MockBuilder
+}
+
+// NewMockBuilder creates a new mock instance.
+func NewMockBuilder(ctrl *gomock.Controller) *MockBuilder <span class="cov0" title="0">{
+        mock := &amp;MockBuilder{ctrl: ctrl}
+        mock.recorder = &amp;MockBuilderMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockBuilder) EXPECT() *MockBuilderMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// BuildIndex mocks base method.
+func (m *MockBuilder) BuildIndex(arg0 context.Context) (map[string][]int, map[int]core.Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "BuildIndex", arg0)
+        ret0, _ := ret[0].(map[string][]int)
+        ret1, _ := ret[1].(map[int]core.Comics)
+        ret2, _ := ret[2].(error)
+        return ret0, ret1, ret2
+}</span>
+
+// BuildIndex indicates an expected call of BuildIndex.
+func (mr *MockBuilderMockRecorder) BuildIndex(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BuildIndex", reflect.TypeOf((*MockBuilder)(nil).BuildIndex), arg0)
+}</span>
+</pre>
+		
+		<pre class="file" id="file24" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ../../../proto/words/words_grpc.pb.go
+//
+// Generated by this command:
+//
+//        mockgen -source ../../../proto/words/words_grpc.pb.go -destination=./mocks/words.go -package=mock_words
+//
+
+// Package mock_words is a generated GoMock package.
+package mock_words
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        grpc "google.golang.org/grpc"
+        emptypb "google.golang.org/protobuf/types/known/emptypb"
+        words "yadro.com/course/proto/words"
+)
+
+// MockWordsClient is a mock of WordsClient interface.
+type MockWordsClient struct {
+        ctrl     *gomock.Controller
+        recorder *MockWordsClientMockRecorder
+        isgomock struct{}
+}
+
+// MockWordsClientMockRecorder is the mock recorder for MockWordsClient.
+type MockWordsClientMockRecorder struct {
+        mock *MockWordsClient
+}
+
+// NewMockWordsClient creates a new mock instance.
+func NewMockWordsClient(ctrl *gomock.Controller) *MockWordsClient <span class="cov0" title="0">{
+        mock := &amp;MockWordsClient{ctrl: ctrl}
+        mock.recorder = &amp;MockWordsClientMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockWordsClient) EXPECT() *MockWordsClientMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockWordsClient) Norm(ctx context.Context, in *words.WordsRequest, opts ...grpc.CallOption) (*words.WordsReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Norm", varargs...)
+        ret0, _ := ret[0].(*words.WordsReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Norm indicates an expected call of Norm.
+func (mr *MockWordsClientMockRecorder) Norm(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockWordsClient)(nil).Norm), varargs...)
+}</span>
+
+// Ping mocks base method.
+func (m *MockWordsClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Ping", varargs...)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Ping indicates an expected call of Ping.
+func (mr *MockWordsClientMockRecorder) Ping(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockWordsClient)(nil).Ping), varargs...)
+}</span>
+
+// MockWordsServer is a mock of WordsServer interface.
+type MockWordsServer struct {
+        ctrl     *gomock.Controller
+        recorder *MockWordsServerMockRecorder
+        isgomock struct{}
+}
+
+// MockWordsServerMockRecorder is the mock recorder for MockWordsServer.
+type MockWordsServerMockRecorder struct {
+        mock *MockWordsServer
+}
+
+// NewMockWordsServer creates a new mock instance.
+func NewMockWordsServer(ctrl *gomock.Controller) *MockWordsServer <span class="cov0" title="0">{
+        mock := &amp;MockWordsServer{ctrl: ctrl}
+        mock.recorder = &amp;MockWordsServerMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockWordsServer) EXPECT() *MockWordsServerMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockWordsServer) Norm(arg0 context.Context, arg1 *words.WordsRequest) (*words.WordsReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Norm", arg0, arg1)
+        ret0, _ := ret[0].(*words.WordsReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Norm indicates an expected call of Norm.
+func (mr *MockWordsServerMockRecorder) Norm(arg0, arg1 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockWordsServer)(nil).Norm), arg0, arg1)
+}</span>
+
+// Ping mocks base method.
+func (m *MockWordsServer) Ping(arg0 context.Context, arg1 *emptypb.Empty) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Ping", arg0, arg1)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Ping indicates an expected call of Ping.
+func (mr *MockWordsServerMockRecorder) Ping(arg0, arg1 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockWordsServer)(nil).Ping), arg0, arg1)
+}</span>
+
+// mustEmbedUnimplementedWordsServer mocks base method.
+func (m *MockWordsServer) mustEmbedUnimplementedWordsServer() <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        m.ctrl.Call(m, "mustEmbedUnimplementedWordsServer")
+}</span>
+
+// mustEmbedUnimplementedWordsServer indicates an expected call of mustEmbedUnimplementedWordsServer.
+func (mr *MockWordsServerMockRecorder) mustEmbedUnimplementedWordsServer() *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "mustEmbedUnimplementedWordsServer", reflect.TypeOf((*MockWordsServer)(nil).mustEmbedUnimplementedWordsServer))
+}</span>
+
+// MockUnsafeWordsServer is a mock of UnsafeWordsServer interface.
+type MockUnsafeWordsServer struct {
+        ctrl     *gomock.Controller
+        recorder *MockUnsafeWordsServerMockRecorder
+        isgomock struct{}
+}
+
+// MockUnsafeWordsServerMockRecorder is the mock recorder for MockUnsafeWordsServer.
+type MockUnsafeWordsServerMockRecorder struct {
+        mock *MockUnsafeWordsServer
+}
+
+// NewMockUnsafeWordsServer creates a new mock instance.
+func NewMockUnsafeWordsServer(ctrl *gomock.Controller) *MockUnsafeWordsServer <span class="cov0" title="0">{
+        mock := &amp;MockUnsafeWordsServer{ctrl: ctrl}
+        mock.recorder = &amp;MockUnsafeWordsServerMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockUnsafeWordsServer) EXPECT() *MockUnsafeWordsServerMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// mustEmbedUnimplementedWordsServer mocks base method.
+func (m *MockUnsafeWordsServer) mustEmbedUnimplementedWordsServer() <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        m.ctrl.Call(m, "mustEmbedUnimplementedWordsServer")
+}</span>
+
+// mustEmbedUnimplementedWordsServer indicates an expected call of mustEmbedUnimplementedWordsServer.
+func (mr *MockUnsafeWordsServerMockRecorder) mustEmbedUnimplementedWordsServer() *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "mustEmbedUnimplementedWordsServer", reflect.TypeOf((*MockUnsafeWordsServer)(nil).mustEmbedUnimplementedWordsServer))
+}</span>
+</pre>
+		
+		<pre class="file" id="file25" style="display: none">//go:generate mockgen -source ../../../proto/words/words_grpc.pb.go -destination=./mocks/words.go -package=mock_words
+package words
+
+import (
+        "context"
+        "log/slog"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/credentials/insecure"
+        "google.golang.org/grpc/status"
+        wordspb "yadro.com/course/proto/words"
+        "yadro.com/course/search/core"
+)
+
+type Client struct {
+        log    *slog.Logger
+        client wordspb.WordsClient
+}
+
+func NewClient(address string, log *slog.Logger) (*Client, error) <span class="cov0" title="0">{
+        conn, err := grpc.NewClient(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">return &amp;Client{
+                client: wordspb.NewWordsClient(conn),
+                log:    log,
+        }, nil</span>
+}
+
+func (c Client) Norm(ctx context.Context, phrase string) ([]string, error) <span class="cov10" title="2">{
+        c.log.Debug("Norm", "ctx", ctx, "phrase", phrase)
+
+        reply, err := c.client.Norm(ctx, &amp;wordspb.WordsRequest{Phrase: phrase})
+        if err != nil </span><span class="cov1" title="1">{
+                if status.Code(err) == codes.ResourceExhausted </span><span class="cov1" title="1">{
+                        return nil, core.ErrBadArguments
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+
+        <span class="cov1" title="1">return reply.GetWords(), nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file26" style="display: none">package config
+
+import (
+        "time"
+
+        "github.com/ilyakaznacheev/cleanenv"
+)
+
+type Config struct {
+        LogLevel     string        `yaml:"log_level" env:"LOG_LEVEL" env-default:"DEBUG"`
+        Address      string        `yaml:"search_address" env:"SEARCH_ADDRESS" env-default:"localhost:8080"`
+        WordsAddress string        `yaml:"words_address" env:"WORDS_ADDRESS" env-default:"localhost:8081"`
+        IndexTTL     time.Duration `yaml:"index_ttl" env:"INDEX_TTL" env-default:"20s"`
+        DBAddress    string        `yaml:"db_address" env:"DB_ADDRESS" env-default:"localhost:5431"`
+}
+
+func MustLoad(configPath string) Config <span class="cov8" title="1">{
+        var cfg Config
+        if err := cleanenv.ReadConfig(configPath, &amp;cfg); err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov8" title="1">return cfg</span>
+}
+</pre>
+		
+		<pre class="file" id="file27" style="display: none">package core
+
+import (
+        "context"
+        "fmt"
+        "log/slog"
+)
+
+type IndexBuilder struct {
+        log     *slog.Logger
+        fetcher Fetcher
+}
+
+func NewIndexBuilder(log *slog.Logger, fetcher Fetcher) (*IndexBuilder, error) <span class="cov1" title="1">{
+        return &amp;IndexBuilder{log: log, fetcher: fetcher}, nil
+}</span>
+
+func (i *IndexBuilder) BuildIndex(ctx context.Context) (map[string][]int, map[int]Comics, error) <span class="cov1" title="1">{
+        wordToID := make(map[string][]int)
+        idToComics := make(map[int]Comics)
+
+        maxID, err := i.fetcher.GetMaxID(ctx)
+        if err != nil </span><span class="cov0" title="0">{
+                return wordToID, idToComics, fmt.Errorf("couldn't get MaxID, %w", err)
+        }</span>
+
+        <span class="cov1" title="1">for id := 1; id &lt;= maxID; id++ </span><span class="cov6" title="3">{
+                comics, keywords, err := i.fetcher.FetchComics(ctx, id)
+                if err != nil </span><span class="cov0" title="0">{
+                        i.log.Error("Couldn't fetch comics from DB", "error", err, "id", id)
+                        continue</span>
+                }
+
+                <span class="cov6" title="3">idToComics[id] = comics
+                for _, word := range keywords </span><span class="cov10" title="7">{
+                        wordToID[word] = append(wordToID[word], id)
+                }</span>
+        }
+
+        <span class="cov1" title="1">return wordToID, idToComics, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file28" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ./ports.go
+//
+// Generated by this command:
+//
+//        mockgen -source ./ports.go -destination=mocks.go -package=core
+//
+
+// Package core is a generated GoMock package.
+package core
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+)
+
+// MockSearcher is a mock of Searcher interface.
+type MockSearcher struct {
+        ctrl     *gomock.Controller
+        recorder *MockSearcherMockRecorder
+        isgomock struct{}
+}
+
+// MockSearcherMockRecorder is the mock recorder for MockSearcher.
+type MockSearcherMockRecorder struct {
+        mock *MockSearcher
+}
+
+// NewMockSearcher creates a new mock instance.
+func NewMockSearcher(ctrl *gomock.Controller) *MockSearcher <span class="cov0" title="0">{
+        mock := &amp;MockSearcher{ctrl: ctrl}
+        mock.recorder = &amp;MockSearcherMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockSearcher) EXPECT() *MockSearcherMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// DbSearch mocks base method.
+func (m *MockSearcher) DbSearch(arg0 context.Context, arg1 int, arg2 string) ([]Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "DbSearch", arg0, arg1, arg2)
+        ret0, _ := ret[0].([]Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// DbSearch indicates an expected call of DbSearch.
+func (mr *MockSearcherMockRecorder) DbSearch(arg0, arg1, arg2 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DbSearch", reflect.TypeOf((*MockSearcher)(nil).DbSearch), arg0, arg1, arg2)
+}</span>
+
+// IndexSearch mocks base method.
+func (m *MockSearcher) IndexSearch(arg0 context.Context, arg1 int, arg2 string) ([]Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "IndexSearch", arg0, arg1, arg2)
+        ret0, _ := ret[0].([]Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// IndexSearch indicates an expected call of IndexSearch.
+func (mr *MockSearcherMockRecorder) IndexSearch(arg0, arg1, arg2 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IndexSearch", reflect.TypeOf((*MockSearcher)(nil).IndexSearch), arg0, arg1, arg2)
+}</span>
+
+// MockwordSearcher is a mock of wordSearcher interface.
+type MockwordSearcher struct {
+        ctrl     *gomock.Controller
+        recorder *MockwordSearcherMockRecorder
+        isgomock struct{}
+}
+
+// MockwordSearcherMockRecorder is the mock recorder for MockwordSearcher.
+type MockwordSearcherMockRecorder struct {
+        mock *MockwordSearcher
+}
+
+// NewMockwordSearcher creates a new mock instance.
+func NewMockwordSearcher(ctrl *gomock.Controller) *MockwordSearcher <span class="cov1" title="1">{
+        mock := &amp;MockwordSearcher{ctrl: ctrl}
+        mock.recorder = &amp;MockwordSearcherMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockwordSearcher) EXPECT() *MockwordSearcherMockRecorder <span class="cov8" title="3">{
+        return m.recorder
+}</span>
+
+// GetComics mocks base method.
+func (m *MockwordSearcher) GetComics(arg0 context.Context, arg1 int) (Comics, error) <span class="cov5" title="2">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "GetComics", arg0, arg1)
+        ret0, _ := ret[0].(Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// GetComics indicates an expected call of GetComics.
+func (mr *MockwordSearcherMockRecorder) GetComics(arg0, arg1 any) *gomock.Call <span class="cov5" title="2">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetComics", reflect.TypeOf((*MockwordSearcher)(nil).GetComics), arg0, arg1)
+}</span>
+
+// SearchByWord mocks base method.
+func (m *MockwordSearcher) SearchByWord(arg0 context.Context, arg1 string) ([]int, error) <span class="cov1" title="1">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "SearchByWord", arg0, arg1)
+        ret0, _ := ret[0].([]int)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// SearchByWord indicates an expected call of SearchByWord.
+func (mr *MockwordSearcherMockRecorder) SearchByWord(arg0, arg1 any) *gomock.Call <span class="cov1" title="1">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchByWord", reflect.TypeOf((*MockwordSearcher)(nil).SearchByWord), arg0, arg1)
+}</span>
+
+// MockIndex is a mock of Index interface.
+type MockIndex struct {
+        ctrl     *gomock.Controller
+        recorder *MockIndexMockRecorder
+        isgomock struct{}
+}
+
+// MockIndexMockRecorder is the mock recorder for MockIndex.
+type MockIndexMockRecorder struct {
+        mock *MockIndex
+}
+
+// NewMockIndex creates a new mock instance.
+func NewMockIndex(ctrl *gomock.Controller) *MockIndex <span class="cov8" title="3">{
+        mock := &amp;MockIndex{ctrl: ctrl}
+        mock.recorder = &amp;MockIndexMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockIndex) EXPECT() *MockIndexMockRecorder <span class="cov8" title="3">{
+        return m.recorder
+}</span>
+
+// GetComics mocks base method.
+func (m *MockIndex) GetComics(arg0 context.Context, arg1 int) (Comics, error) <span class="cov5" title="2">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "GetComics", arg0, arg1)
+        ret0, _ := ret[0].(Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// GetComics indicates an expected call of GetComics.
+func (mr *MockIndexMockRecorder) GetComics(arg0, arg1 any) *gomock.Call <span class="cov5" title="2">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetComics", reflect.TypeOf((*MockIndex)(nil).GetComics), arg0, arg1)
+}</span>
+
+// SearchByWord mocks base method.
+func (m *MockIndex) SearchByWord(arg0 context.Context, arg1 string) ([]int, error) <span class="cov1" title="1">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "SearchByWord", arg0, arg1)
+        ret0, _ := ret[0].([]int)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// SearchByWord indicates an expected call of SearchByWord.
+func (mr *MockIndexMockRecorder) SearchByWord(arg0, arg1 any) *gomock.Call <span class="cov1" title="1">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchByWord", reflect.TypeOf((*MockIndex)(nil).SearchByWord), arg0, arg1)
+}</span>
+
+// Start mocks base method.
+func (m *MockIndex) Start(arg0 context.Context) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        m.ctrl.Call(m, "Start", arg0)
+}</span>
+
+// Start indicates an expected call of Start.
+func (mr *MockIndexMockRecorder) Start(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Start", reflect.TypeOf((*MockIndex)(nil).Start), arg0)
+}</span>
+
+// MockDB is a mock of DB interface.
+type MockDB struct {
+        ctrl     *gomock.Controller
+        recorder *MockDBMockRecorder
+        isgomock struct{}
+}
+
+// MockDBMockRecorder is the mock recorder for MockDB.
+type MockDBMockRecorder struct {
+        mock *MockDB
+}
+
+// NewMockDB creates a new mock instance.
+func NewMockDB(ctrl *gomock.Controller) *MockDB <span class="cov8" title="3">{
+        mock := &amp;MockDB{ctrl: ctrl}
+        mock.recorder = &amp;MockDBMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockDB) EXPECT() *MockDBMockRecorder <span class="cov8" title="3">{
+        return m.recorder
+}</span>
+
+// GetComics mocks base method.
+func (m *MockDB) GetComics(arg0 context.Context, arg1 int) (Comics, error) <span class="cov5" title="2">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "GetComics", arg0, arg1)
+        ret0, _ := ret[0].(Comics)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// GetComics indicates an expected call of GetComics.
+func (mr *MockDBMockRecorder) GetComics(arg0, arg1 any) *gomock.Call <span class="cov5" title="2">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetComics", reflect.TypeOf((*MockDB)(nil).GetComics), arg0, arg1)
+}</span>
+
+// SearchByWord mocks base method.
+func (m *MockDB) SearchByWord(arg0 context.Context, arg1 string) ([]int, error) <span class="cov1" title="1">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "SearchByWord", arg0, arg1)
+        ret0, _ := ret[0].([]int)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// SearchByWord indicates an expected call of SearchByWord.
+func (mr *MockDBMockRecorder) SearchByWord(arg0, arg1 any) *gomock.Call <span class="cov1" title="1">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SearchByWord", reflect.TypeOf((*MockDB)(nil).SearchByWord), arg0, arg1)
+}</span>
+
+// MockFetcher is a mock of Fetcher interface.
+type MockFetcher struct {
+        ctrl     *gomock.Controller
+        recorder *MockFetcherMockRecorder
+        isgomock struct{}
+}
+
+// MockFetcherMockRecorder is the mock recorder for MockFetcher.
+type MockFetcherMockRecorder struct {
+        mock *MockFetcher
+}
+
+// NewMockFetcher creates a new mock instance.
+func NewMockFetcher(ctrl *gomock.Controller) *MockFetcher <span class="cov1" title="1">{
+        mock := &amp;MockFetcher{ctrl: ctrl}
+        mock.recorder = &amp;MockFetcherMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockFetcher) EXPECT() *MockFetcherMockRecorder <span class="cov10" title="4">{
+        return m.recorder
+}</span>
+
+// FetchComics mocks base method.
+func (m *MockFetcher) FetchComics(arg0 context.Context, arg1 int) (Comics, []string, error) <span class="cov8" title="3">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "FetchComics", arg0, arg1)
+        ret0, _ := ret[0].(Comics)
+        ret1, _ := ret[1].([]string)
+        ret2, _ := ret[2].(error)
+        return ret0, ret1, ret2
+}</span>
+
+// FetchComics indicates an expected call of FetchComics.
+func (mr *MockFetcherMockRecorder) FetchComics(arg0, arg1 any) *gomock.Call <span class="cov8" title="3">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "FetchComics", reflect.TypeOf((*MockFetcher)(nil).FetchComics), arg0, arg1)
+}</span>
+
+// GetMaxID mocks base method.
+func (m *MockFetcher) GetMaxID(arg0 context.Context) (int, error) <span class="cov1" title="1">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "GetMaxID", arg0)
+        ret0, _ := ret[0].(int)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// GetMaxID indicates an expected call of GetMaxID.
+func (mr *MockFetcherMockRecorder) GetMaxID(arg0 any) *gomock.Call <span class="cov1" title="1">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMaxID", reflect.TypeOf((*MockFetcher)(nil).GetMaxID), arg0)
+}</span>
+
+// MockBuilder is a mock of Builder interface.
+type MockBuilder struct {
+        ctrl     *gomock.Controller
+        recorder *MockBuilderMockRecorder
+        isgomock struct{}
+}
+
+// MockBuilderMockRecorder is the mock recorder for MockBuilder.
+type MockBuilderMockRecorder struct {
+        mock *MockBuilder
+}
+
+// NewMockBuilder creates a new mock instance.
+func NewMockBuilder(ctrl *gomock.Controller) *MockBuilder <span class="cov0" title="0">{
+        mock := &amp;MockBuilder{ctrl: ctrl}
+        mock.recorder = &amp;MockBuilderMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockBuilder) EXPECT() *MockBuilderMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// BuildIndex mocks base method.
+func (m *MockBuilder) BuildIndex(arg0 context.Context) (map[string][]int, map[int]Comics, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "BuildIndex", arg0)
+        ret0, _ := ret[0].(map[string][]int)
+        ret1, _ := ret[1].(map[int]Comics)
+        ret2, _ := ret[2].(error)
+        return ret0, ret1, ret2
+}</span>
+
+// BuildIndex indicates an expected call of BuildIndex.
+func (mr *MockBuilderMockRecorder) BuildIndex(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "BuildIndex", reflect.TypeOf((*MockBuilder)(nil).BuildIndex), arg0)
+}</span>
+
+// MockWords is a mock of Words interface.
+type MockWords struct {
+        ctrl     *gomock.Controller
+        recorder *MockWordsMockRecorder
+        isgomock struct{}
+}
+
+// MockWordsMockRecorder is the mock recorder for MockWords.
+type MockWordsMockRecorder struct {
+        mock *MockWords
+}
+
+// NewMockWords creates a new mock instance.
+func NewMockWords(ctrl *gomock.Controller) *MockWords <span class="cov8" title="3">{
+        mock := &amp;MockWords{ctrl: ctrl}
+        mock.recorder = &amp;MockWordsMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockWords) EXPECT() *MockWordsMockRecorder <span class="cov8" title="3">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockWords) Norm(arg0 context.Context, arg1 string) ([]string, error) <span class="cov8" title="3">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Norm", arg0, arg1)
+        ret0, _ := ret[0].([]string)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Norm indicates an expected call of Norm.
+func (mr *MockWordsMockRecorder) Norm(arg0, arg1 any) *gomock.Call <span class="cov8" title="3">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockWords)(nil).Norm), arg0, arg1)
+}</span>
+</pre>
+		
+		<pre class="file" id="file29" style="display: none">//go:generate mockgen -source ./ports.go -destination=mocks.go -package=corerequire.Equal(t, secondWordToID, idx.wordToID)
+package core
+
+import (
+        "cmp"
+        "context"
+        "log/slog"
+        "maps"
+        "slices"
+)
+
+type Service struct {
+        log   *slog.Logger
+        db    DB
+        index Index
+        words Words
+}
+
+func NewService(log *slog.Logger, db DB, index Index, words Words) (*Service, error) <span class="cov6" title="3">{
+        return &amp;Service{
+                log:   log,
+                db:    db,
+                index: index,
+                words: words,
+        }, nil
+}</span>
+
+func (s *Service) DbSearch(ctx context.Context, limit int, phrase string) ([]Comics, error) <span class="cov1" title="1">{
+        s.log.Debug("DbSearch", "limit", limit, "phrase", phrase)
+        return s.search(ctx, limit, phrase, s.db)
+}</span>
+
+func (s *Service) IndexSearch(ctx context.Context, limit int, phrase string) ([]Comics, error) <span class="cov1" title="1">{
+        s.log.Debug("IndexSearch", "limit", limit, "phrase", phrase)
+        return s.search(ctx, limit, phrase, s.index)
+}</span>
+
+func (s *Service) search(ctx context.Context, limit int, phrase string, searcher wordSearcher) ([]Comics, error) <span class="cov6" title="3">{
+        words, err := s.words.Norm(ctx, phrase)
+        if err != nil </span><span class="cov0" title="0">{
+                s.log.Error("search normalization", "error", err)
+                return nil, err
+        }</span>
+
+        <span class="cov6" title="3">IDToScore := make(map[int]int)
+
+        for _, word := range words </span><span class="cov6" title="3">{
+                IDs, err := searcher.SearchByWord(ctx, word)
+                if err != nil </span><span class="cov0" title="0">{
+                        s.log.Error("searchByWord", "error", err)
+                        return nil, err
+                }</span>
+
+                <span class="cov6" title="3">for _, id := range IDs </span><span class="cov10" title="6">{
+                        IDToScore[id]++
+                }</span>
+        }
+
+        <span class="cov6" title="3">sorted := slices.SortedFunc(maps.Keys(IDToScore), func(a, b int) int </span><span class="cov6" title="3">{
+                if IDToScore[a] != IDToScore[b] </span><span class="cov0" title="0">{
+                        return cmp.Compare(IDToScore[b], IDToScore[a])
+                }</span>
+
+                <span class="cov6" title="3">return cmp.Compare(a, b)</span>
+        })
+
+        <span class="cov6" title="3">if len(sorted) &lt; limit </span><span class="cov6" title="3">{
+                limit = len(sorted)
+        }</span>
+        <span class="cov6" title="3">sorted = sorted[:limit]
+
+        ans := make([]Comics, 0, len(sorted))
+
+        for _, id := range sorted </span><span class="cov10" title="6">{
+                comics, err := searcher.GetComics(ctx, id)
+                if err != nil </span><span class="cov0" title="0">{
+                        s.log.Error("Can't get comics by ID", "error", err, "id", id)
+                        return nil, err
+                }</span>
+
+                <span class="cov10" title="6">ans = append(ans, comics)</span>
+        }
+
+        <span class="cov6" title="3">return ans, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file30" style="display: none">package db
+
+import (
+        "embed"
+
+        "github.com/golang-migrate/migrate/v4"
+        "github.com/golang-migrate/migrate/v4/database/pgx"
+        "github.com/golang-migrate/migrate/v4/source/iofs"
+)
+
+//go:embed migrations/*.sql
+var migrationFiles embed.FS
+
+func (db *DB) Migrate() error <span class="cov0" title="0">{
+        db.log.Debug("running migration")
+        files, err := iofs.New(migrationFiles, "migrations") // get migrations from
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov0" title="0">driver, err := pgx.WithInstance(db.conn.GetDB(), &amp;pgx.Config{})
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+        <span class="cov0" title="0">m, err := migrate.NewWithInstance("iofs", files, "pgx", driver)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov0" title="0">err = m.Up()
+
+        if err != nil </span><span class="cov0" title="0">{
+                if err != migrate.ErrNoChange </span><span class="cov0" title="0">{
+                        db.log.Error("migration failed", "error", err)
+                        return err
+                }</span>
+                <span class="cov0" title="0">db.log.Debug("migration did not change anything")</span>
+        }
+
+        <span class="cov0" title="0">db.log.Debug("migration finished")
+        return nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file31" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ./storage.go
+//
+// Generated by this command:
+//
+//        mockgen -source ./storage.go -destination=./mocks/storage.go -package=mock_dbops
+//
+
+// Package mock_dbops is a generated GoMock package.
+package mock_dbops
+
+import (
+        context "context"
+        sql "database/sql"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+)
+
+// MockDBops is a mock of DBops interface.
+type MockDBops struct {
+        ctrl     *gomock.Controller
+        recorder *MockDBopsMockRecorder
+        isgomock struct{}
+}
+
+// MockDBopsMockRecorder is the mock recorder for MockDBops.
+type MockDBopsMockRecorder struct {
+        mock *MockDBops
+}
+
+// NewMockDBops creates a new mock instance.
+func NewMockDBops(ctrl *gomock.Controller) *MockDBops <span class="cov0" title="0">{
+        mock := &amp;MockDBops{ctrl: ctrl}
+        mock.recorder = &amp;MockDBopsMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockDBops) EXPECT() *MockDBopsMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// ExecContext mocks base method.
+func (m *MockDBops) ExecContext(arg0 context.Context, arg1 string, arg2 ...any) (sql.Result, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{arg0, arg1}
+        for _, a := range arg2 </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "ExecContext", varargs...)
+        ret0, _ := ret[0].(sql.Result)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// ExecContext indicates an expected call of ExecContext.
+func (mr *MockDBopsMockRecorder) ExecContext(arg0, arg1 any, arg2 ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{arg0, arg1}, arg2...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ExecContext", reflect.TypeOf((*MockDBops)(nil).ExecContext), varargs...)
+}</span>
+
+// GetContext mocks base method.
+func (m *MockDBops) GetContext(arg0 context.Context, arg1 any, arg2 string, arg3 ...any) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{arg0, arg1, arg2}
+        for _, a := range arg3 </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "GetContext", varargs...)
+        ret0, _ := ret[0].(error)
+        return ret0</span>
+}
+
+// GetContext indicates an expected call of GetContext.
+func (mr *MockDBopsMockRecorder) GetContext(arg0, arg1, arg2 any, arg3 ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{arg0, arg1, arg2}, arg3...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetContext", reflect.TypeOf((*MockDBops)(nil).GetContext), varargs...)
+}</span>
+
+// GetDB mocks base method.
+func (m *MockDBops) GetDB() *sql.DB <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "GetDB")
+        ret0, _ := ret[0].(*sql.DB)
+        return ret0
+}</span>
+
+// GetDB indicates an expected call of GetDB.
+func (mr *MockDBopsMockRecorder) GetDB() *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetDB", reflect.TypeOf((*MockDBops)(nil).GetDB))
+}</span>
+
+// SelectContext mocks base method.
+func (m *MockDBops) SelectContext(arg0 context.Context, arg1 any, arg2 string, arg3 ...any) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{arg0, arg1, arg2}
+        for _, a := range arg3 </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "SelectContext", varargs...)
+        ret0, _ := ret[0].(error)
+        return ret0</span>
+}
+
+// SelectContext indicates an expected call of SelectContext.
+func (mr *MockDBopsMockRecorder) SelectContext(arg0, arg1, arg2 any, arg3 ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{arg0, arg1, arg2}, arg3...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SelectContext", reflect.TypeOf((*MockDBops)(nil).SelectContext), varargs...)
+}</span>
+</pre>
+		
+		<pre class="file" id="file32" style="display: none">package db
+
+import (
+        "context"
+        "database/sql"
+
+        "github.com/jmoiron/sqlx"
+)
+
+type sqlxAdapter struct {
+        db *sqlx.DB
+}
+
+func NewSQLxAdapter(db *sqlx.DB) *sqlxAdapter <span class="cov0" title="0">{
+        return &amp;sqlxAdapter{db: db}
+}</span>
+
+func (s *sqlxAdapter) ExecContext(ctx context.Context, query string, args ...any) (sql.Result, error) <span class="cov0" title="0">{
+        return s.db.ExecContext(ctx, query, args...)
+}</span>
+
+func (s *sqlxAdapter) GetContext(ctx context.Context, dest interface{}, query string, args ...any) error <span class="cov0" title="0">{
+        return s.db.GetContext(ctx, dest, query, args...)
+}</span>
+
+func (s *sqlxAdapter) SelectContext(ctx context.Context, dest interface{}, query string, args ...any) error <span class="cov0" title="0">{
+        return s.db.SelectContext(ctx, dest, query, args...)
+}</span>
+
+func (s *sqlxAdapter) GetDB() *sql.DB <span class="cov0" title="0">{
+        return s.db.DB
+}</span>
+</pre>
+		
+		<pre class="file" id="file33" style="display: none">//go:generate mockgen -source ./storage.go -destination=./mocks/storage.go -package=mock_dbops
+package db
+
+import (
+        "context"
+        "database/sql"
+        "fmt"
+        "log/slog"
+
+        _ "github.com/jackc/pgx/v5/stdlib"
+        "github.com/jmoiron/sqlx"
+        "yadro.com/course/update/core"
+)
+
+type DBops interface {
+        ExecContext(context.Context, string, ...any) (sql.Result, error)
+        GetContext(context.Context, interface{}, string, ...interface{}) error
+        SelectContext(context.Context, interface{}, string, ...interface{}) error
+        GetDB() *sql.DB
+}
+
+type DB struct {
+        log  *slog.Logger
+        conn DBops
+}
+
+type Stats struct {
+        WordsTotal    int `db:"words_total"`
+        WordsUnique   int `db:"words_unique"`
+        ComicsFetched int `db:"comics_fetched"`
+}
+
+func New(log *slog.Logger, address string) (*DB, error) <span class="cov0" title="0">{
+
+        db, err := sqlx.Connect("pgx", address)
+        if err != nil </span><span class="cov0" title="0">{
+                log.Error("connection problem", "address", address, "error", err)
+                return nil, err
+        }</span>
+
+        <span class="cov0" title="0">adapterSQLX := NewSQLxAdapter(db)
+
+        return &amp;DB{
+                log:  log,
+                conn: adapterSQLX,
+        }, nil</span>
+}
+
+func (db *DB) Add(ctx context.Context, comics core.Comics) error <span class="cov10" title="2">{
+        _, err := db.conn.ExecContext(ctx,
+                `INSERT INTO comics (comics_id, img_url, keywords) VALUES($1, $2, $3)`,
+                comics.ID, comics.URL, comics.Words)
+
+        return err
+}</span>
+
+func (db *DB) Stats(ctx context.Context) (core.DBStats, error) <span class="cov10" title="2">{
+        query := `
+        SELECT 
+                COUNT(*) AS words_total,
+                COUNT(DISTINCT keyword) AS words_unique,
+                (SELECT COUNT(*) FROM comics) AS comics_fetched
+        FROM (
+                SELECT unnest(keywords) AS keyword
+                FROM comics
+        ) AS subquery;
+        `
+        var stats Stats
+        err := db.conn.GetContext(ctx, &amp;stats, query)
+
+        return core.DBStats{
+                WordsTotal:    stats.WordsTotal,
+                WordsUnique:   stats.WordsUnique,
+                ComicsFetched: stats.ComicsFetched,
+        }, err
+}</span>
+
+func (db *DB) IDs(ctx context.Context) ([]int, error) <span class="cov10" title="2">{
+        var ids []int
+
+        err := db.conn.SelectContext(ctx, &amp;ids, `SELECT comics_id FROM comics`)
+        if err != nil </span><span class="cov1" title="1">{
+                db.log.Error("failed to fetch comics IDs", "error", err)
+                return nil, fmt.Errorf("fetch comics IDs: %w", err)
+        }</span>
+
+        <span class="cov1" title="1">return ids, nil</span>
+}
+
+func (db *DB) Drop(ctx context.Context) error <span class="cov10" title="2">{
+        _, err := db.conn.ExecContext(ctx, `DELETE FROM comics`)
+        return err
+}</span>
+</pre>
+		
+		<pre class="file" id="file34" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: yadro.com/course/update/core (interfaces: Updater)
+//
+// Generated by this command:
+//
+//        mockgen -package mock_grpc -destination ./mocks/ports.go yadro.com/course/update/core Updater
+//
+
+// Package mock_grpc is a generated GoMock package.
+package mock_grpc
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        core "yadro.com/course/update/core"
+)
+
+// MockUpdater is a mock of Updater interface.
+type MockUpdater struct {
+        ctrl     *gomock.Controller
+        recorder *MockUpdaterMockRecorder
+        isgomock struct{}
+}
+
+// MockUpdaterMockRecorder is the mock recorder for MockUpdater.
+type MockUpdaterMockRecorder struct {
+        mock *MockUpdater
+}
+
+// NewMockUpdater creates a new mock instance.
+func NewMockUpdater(ctrl *gomock.Controller) *MockUpdater <span class="cov0" title="0">{
+        mock := &amp;MockUpdater{ctrl: ctrl}
+        mock.recorder = &amp;MockUpdaterMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockUpdater) EXPECT() *MockUpdaterMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Drop mocks base method.
+func (m *MockUpdater) Drop(arg0 context.Context) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Drop", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Drop indicates an expected call of Drop.
+func (mr *MockUpdaterMockRecorder) Drop(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Drop", reflect.TypeOf((*MockUpdater)(nil).Drop), arg0)
+}</span>
+
+// Stats mocks base method.
+func (m *MockUpdater) Stats(arg0 context.Context) (core.ServiceStats, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Stats", arg0)
+        ret0, _ := ret[0].(core.ServiceStats)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Stats indicates an expected call of Stats.
+func (mr *MockUpdaterMockRecorder) Stats(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Stats", reflect.TypeOf((*MockUpdater)(nil).Stats), arg0)
+}</span>
+
+// Status mocks base method.
+func (m *MockUpdater) Status(arg0 context.Context) core.ServiceStatus <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Status", arg0)
+        ret0, _ := ret[0].(core.ServiceStatus)
+        return ret0
+}</span>
+
+// Status indicates an expected call of Status.
+func (mr *MockUpdaterMockRecorder) Status(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Status", reflect.TypeOf((*MockUpdater)(nil).Status), arg0)
+}</span>
+
+// Update mocks base method.
+func (m *MockUpdater) Update(arg0 context.Context) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Update", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Update indicates an expected call of Update.
+func (mr *MockUpdaterMockRecorder) Update(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockUpdater)(nil).Update), arg0)
+}</span>
+</pre>
+		
+		<pre class="file" id="file35" style="display: none">//go:generate mockgen -package mock_grpc -destination ./mocks/ports.go "yadro.com/course/update/core" Updater
+package grpc
+
+import (
+        "context"
+        "errors"
+
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/status"
+        "google.golang.org/protobuf/types/known/emptypb"
+        updatepb "yadro.com/course/proto/update"
+        "yadro.com/course/update/core"
+)
+
+func NewServer(service core.Updater) *Server <span class="cov10" title="10">{
+        return &amp;Server{service: service}
+}</span>
+
+type Server struct {
+        updatepb.UnimplementedUpdateServer
+        service core.Updater
+}
+
+func (s *Server) Ping(_ context.Context, _ *emptypb.Empty) (*emptypb.Empty, error) <span class="cov1" title="1">{
+        return nil, nil
+}</span>
+
+func (s *Server) Status(ctx context.Context, _ *emptypb.Empty) (*updatepb.StatusReply, error) <span class="cov5" title="3">{
+        status := s.service.Status(ctx)
+
+        var response updatepb.StatusReply
+
+        switch status </span>{
+        case core.StatusIdle:<span class="cov1" title="1">
+                response.Status = updatepb.Status_STATUS_IDLE</span>
+        case core.StatusRunning:<span class="cov1" title="1">
+                response.Status = updatepb.Status_STATUS_RUNNING</span>
+        default:<span class="cov1" title="1">
+                response.Status = updatepb.Status_STATUS_UNSPECIFIED</span>
+        }
+
+        <span class="cov5" title="3">return &amp;response, nil</span>
+}
+
+func (s *Server) Update(ctx context.Context, _ *emptypb.Empty) (*emptypb.Empty, error) <span class="cov5" title="3">{
+        if err := s.service.Update(ctx); err != nil </span><span class="cov3" title="2">{
+                if errors.Is(err, core.ErrAlreadyExists) </span><span class="cov1" title="1">{
+                        return nil, status.Error(codes.AlreadyExists, "update already runs")
+                }</span>
+                <span class="cov1" title="1">return nil, err</span>
+        }
+        <span class="cov1" title="1">return nil, nil</span>
+}
+
+func (s *Server) Stats(ctx context.Context, _ *emptypb.Empty) (*updatepb.StatsReply, error) <span class="cov1" title="1">{
+        stats, err := s.service.Stats(ctx)
+
+        return &amp;updatepb.StatsReply{
+                        WordsTotal:    int64(stats.WordsTotal),
+                        WordsUnique:   int64(stats.WordsUnique),
+                        ComicsTotal:   int64(stats.ComicsTotal),
+                        ComicsFetched: int64(stats.ComicsFetched)},
+                err
+}</span>
+
+func (s *Server) Drop(ctx context.Context, _ *emptypb.Empty) (*emptypb.Empty, error) <span class="cov3" title="2">{
+        return nil, s.service.Drop(ctx)
+}</span>
+</pre>
+		
+		<pre class="file" id="file36" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ../../../proto/words/words_grpc.pb.go
+//
+// Generated by this command:
+//
+//        mockgen -source ../../../proto/words/words_grpc.pb.go -destination=./mocks/words.go -package=mock_words
+//
+
+// Package mock_words is a generated GoMock package.
+package mock_words
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+        grpc "google.golang.org/grpc"
+        emptypb "google.golang.org/protobuf/types/known/emptypb"
+        words "yadro.com/course/proto/words"
+)
+
+// MockWordsClient is a mock of WordsClient interface.
+type MockWordsClient struct {
+        ctrl     *gomock.Controller
+        recorder *MockWordsClientMockRecorder
+        isgomock struct{}
+}
+
+// MockWordsClientMockRecorder is the mock recorder for MockWordsClient.
+type MockWordsClientMockRecorder struct {
+        mock *MockWordsClient
+}
+
+// NewMockWordsClient creates a new mock instance.
+func NewMockWordsClient(ctrl *gomock.Controller) *MockWordsClient <span class="cov0" title="0">{
+        mock := &amp;MockWordsClient{ctrl: ctrl}
+        mock.recorder = &amp;MockWordsClientMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockWordsClient) EXPECT() *MockWordsClientMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockWordsClient) Norm(ctx context.Context, in *words.WordsRequest, opts ...grpc.CallOption) (*words.WordsReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Norm", varargs...)
+        ret0, _ := ret[0].(*words.WordsReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Norm indicates an expected call of Norm.
+func (mr *MockWordsClientMockRecorder) Norm(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockWordsClient)(nil).Norm), varargs...)
+}</span>
+
+// Ping mocks base method.
+func (m *MockWordsClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        varargs := []any{ctx, in}
+        for _, a := range opts </span><span class="cov0" title="0">{
+                varargs = append(varargs, a)
+        }</span>
+        <span class="cov0" title="0">ret := m.ctrl.Call(m, "Ping", varargs...)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1</span>
+}
+
+// Ping indicates an expected call of Ping.
+func (mr *MockWordsClientMockRecorder) Ping(ctx, in any, opts ...any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        varargs := append([]any{ctx, in}, opts...)
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockWordsClient)(nil).Ping), varargs...)
+}</span>
+
+// MockWordsServer is a mock of WordsServer interface.
+type MockWordsServer struct {
+        ctrl     *gomock.Controller
+        recorder *MockWordsServerMockRecorder
+        isgomock struct{}
+}
+
+// MockWordsServerMockRecorder is the mock recorder for MockWordsServer.
+type MockWordsServerMockRecorder struct {
+        mock *MockWordsServer
+}
+
+// NewMockWordsServer creates a new mock instance.
+func NewMockWordsServer(ctrl *gomock.Controller) *MockWordsServer <span class="cov0" title="0">{
+        mock := &amp;MockWordsServer{ctrl: ctrl}
+        mock.recorder = &amp;MockWordsServerMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockWordsServer) EXPECT() *MockWordsServerMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockWordsServer) Norm(arg0 context.Context, arg1 *words.WordsRequest) (*words.WordsReply, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Norm", arg0, arg1)
+        ret0, _ := ret[0].(*words.WordsReply)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Norm indicates an expected call of Norm.
+func (mr *MockWordsServerMockRecorder) Norm(arg0, arg1 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockWordsServer)(nil).Norm), arg0, arg1)
+}</span>
+
+// Ping mocks base method.
+func (m *MockWordsServer) Ping(arg0 context.Context, arg1 *emptypb.Empty) (*emptypb.Empty, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Ping", arg0, arg1)
+        ret0, _ := ret[0].(*emptypb.Empty)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Ping indicates an expected call of Ping.
+func (mr *MockWordsServerMockRecorder) Ping(arg0, arg1 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Ping", reflect.TypeOf((*MockWordsServer)(nil).Ping), arg0, arg1)
+}</span>
+
+// mustEmbedUnimplementedWordsServer mocks base method.
+func (m *MockWordsServer) mustEmbedUnimplementedWordsServer() <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        m.ctrl.Call(m, "mustEmbedUnimplementedWordsServer")
+}</span>
+
+// mustEmbedUnimplementedWordsServer indicates an expected call of mustEmbedUnimplementedWordsServer.
+func (mr *MockWordsServerMockRecorder) mustEmbedUnimplementedWordsServer() *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "mustEmbedUnimplementedWordsServer", reflect.TypeOf((*MockWordsServer)(nil).mustEmbedUnimplementedWordsServer))
+}</span>
+
+// MockUnsafeWordsServer is a mock of UnsafeWordsServer interface.
+type MockUnsafeWordsServer struct {
+        ctrl     *gomock.Controller
+        recorder *MockUnsafeWordsServerMockRecorder
+        isgomock struct{}
+}
+
+// MockUnsafeWordsServerMockRecorder is the mock recorder for MockUnsafeWordsServer.
+type MockUnsafeWordsServerMockRecorder struct {
+        mock *MockUnsafeWordsServer
+}
+
+// NewMockUnsafeWordsServer creates a new mock instance.
+func NewMockUnsafeWordsServer(ctrl *gomock.Controller) *MockUnsafeWordsServer <span class="cov0" title="0">{
+        mock := &amp;MockUnsafeWordsServer{ctrl: ctrl}
+        mock.recorder = &amp;MockUnsafeWordsServerMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockUnsafeWordsServer) EXPECT() *MockUnsafeWordsServerMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// mustEmbedUnimplementedWordsServer mocks base method.
+func (m *MockUnsafeWordsServer) mustEmbedUnimplementedWordsServer() <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        m.ctrl.Call(m, "mustEmbedUnimplementedWordsServer")
+}</span>
+
+// mustEmbedUnimplementedWordsServer indicates an expected call of mustEmbedUnimplementedWordsServer.
+func (mr *MockUnsafeWordsServerMockRecorder) mustEmbedUnimplementedWordsServer() *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "mustEmbedUnimplementedWordsServer", reflect.TypeOf((*MockUnsafeWordsServer)(nil).mustEmbedUnimplementedWordsServer))
+}</span>
+</pre>
+		
+		<pre class="file" id="file37" style="display: none">//go:generate mockgen -source ../../../proto/words/words_grpc.pb.go -destination=./mocks/words.go -package=mock_words
+package words
+
+import (
+        "context"
+        "log/slog"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/credentials/insecure"
+        "google.golang.org/grpc/status"
+        wordspb "yadro.com/course/proto/words"
+        "yadro.com/course/update/core"
+)
+
+type Client struct {
+        log    *slog.Logger
+        client wordspb.WordsClient
+}
+
+func NewClient(address string, log *slog.Logger) (*Client, error) <span class="cov0" title="0">{
+        conn, err := grpc.NewClient(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">return &amp;Client{
+                client: wordspb.NewWordsClient(conn),
+                log:    log,
+        }, nil</span>
+}
+
+func (c Client) Norm(ctx context.Context, phrase string) ([]string, error) <span class="cov10" title="2">{
+        c.log.Debug("Norm", "ctx", ctx, "phrase", phrase)
+
+        reply, err := c.client.Norm(ctx, &amp;wordspb.WordsRequest{Phrase: phrase})
+        if err != nil </span><span class="cov1" title="1">{
+                if status.Code(err) == codes.ResourceExhausted </span><span class="cov1" title="1">{
+                        return nil, core.ErrBadArguments
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+        <span class="cov1" title="1">return reply.GetWords(), nil</span>
+
+}
+
+func (c Client) Ping(ctx context.Context) error <span class="cov1" title="1">{
+        _, err := c.client.Ping(ctx, nil)
+        return err
+}</span>
+</pre>
+		
+		<pre class="file" id="file38" style="display: none">package xkcd
+
+import (
+        "context"
+        "encoding/json"
+        "fmt"
+        "log/slog"
+        "net/http"
+        "time"
+
+        "yadro.com/course/update/core"
+)
+
+type Client struct {
+        log    *slog.Logger
+        client http.Client
+        url    string
+}
+
+type ComicsInfo struct {
+        ID         int    `json:"num"`
+        URL        string `json:"img"`
+        Title      string `json:"title"`
+        SafeTitle  string `json:"safe_title"`
+        Transcript string `json:"transcript"`
+        Alt        string `json:"alt"`
+}
+
+const lastPath = "/info.0.json"
+
+func NewClient(url string, timeout time.Duration, log *slog.Logger) (*Client, error) <span class="cov4" title="2">{
+        log.Debug("New Client", "url", url, "timeout", timeout)
+
+        if url == "" </span><span class="cov1" title="1">{
+                return nil, fmt.Errorf("empty base url specified")
+        }</span>
+
+        <span class="cov1" title="1">return &amp;Client{
+                client: http.Client{Timeout: timeout},
+                log:    log,
+                url:    url,
+        }, nil</span>
+}
+
+func (c Client) Get(ctx context.Context, id int) (core.XKCDInfo, error) <span class="cov1" title="1">{
+        return c.get(ctx, fmt.Sprintf("%s/%d/%s", c.url, id, lastPath))
+}</span>
+
+func (c Client) LastID(ctx context.Context) (int, error) <span class="cov4" title="2">{
+        comics, err := c.get(ctx, c.url+lastPath)
+        if err != nil </span><span class="cov1" title="1">{
+                return 0, err
+        }</span>
+        <span class="cov1" title="1">return comics.ID, nil</span>
+}
+
+func (c Client) get(ctx context.Context, url string) (core.XKCDInfo, error) <span class="cov10" title="7">{
+        c.log.Debug("get", "url", url)
+
+        req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+        if err != nil </span><span class="cov0" title="0">{
+                return core.XKCDInfo{}, fmt.Errorf("failed to create request: %w", err)
+        }</span>
+
+        <span class="cov10" title="7">resp, err := c.client.Do(req)
+        if err != nil </span><span class="cov1" title="1">{
+                return core.XKCDInfo{}, fmt.Errorf("failed to request comics: %w", err)
+        }</span>
+        <span class="cov9" title="6">defer resp.Body.Close()
+
+        if resp.StatusCode == http.StatusNotFound </span><span class="cov4" title="2">{
+                return core.XKCDInfo{}, core.ErrNotFound
+        }</span>
+
+        <span class="cov7" title="4">var info ComicsInfo
+        if err = json.NewDecoder(resp.Body).Decode(&amp;info); err != nil </span><span class="cov1" title="1">{
+                return core.XKCDInfo{}, fmt.Errorf("failed to decode comics: %w", err)
+        }</span>
+
+        <span class="cov6" title="3">return core.XKCDInfo{
+                ID:          info.ID,
+                URL:         info.URL,
+                Description: info.Title + " " + info.SafeTitle + " " + info.Transcript + " " + info.Alt,
+        }, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file39" style="display: none">package config
+
+import (
+        "time"
+
+        "github.com/ilyakaznacheev/cleanenv"
+)
+
+type XKCD struct {
+        URL         string        `yaml:"url" env:"XKCD_URL" env-default:"xkcd.com"`
+        Concurrency int           `yaml:"concurrency" env:"XKCD_CONCURRENCY" env-default:"1"`
+        Timeout     time.Duration `yaml:"timeout" env:"XKCD_TIMEOUT" env-default:"10s"`
+        CheckPeriod time.Duration `yaml:"check_period" env:"XKCD_CHECK_PERIOD" env-default:"1h"`
+}
+
+type Config struct {
+        LogLevel     string `yaml:"log_level" env:"LOG_LEVEL" env-default:"DEBUG"`
+        Address      string `yaml:"update_address" env:"UPDATE_ADDRESS" env-default:"localhost:80"`
+        XKCD         `yaml:"xkcd"`
+        DBAddress    string `yaml:"db_address" env:"DB_ADDRESS" env-default:"localhost:82"`
+        WordsAddress string `yaml:"words_address" env:"WORDS_ADDRESS" env-default:"localhost:81"`
+}
+
+func MustLoad(configPath string) Config <span class="cov8" title="1">{
+        var cfg Config
+        if err := cleanenv.ReadConfig(configPath, &amp;cfg); err != nil </span><span class="cov0" title="0">{
+                panic(err)</span>
+        }
+        <span class="cov8" title="1">return cfg</span>
+}
+</pre>
+		
+		<pre class="file" id="file40" style="display: none">// Code generated by MockGen. DO NOT EDIT.
+// Source: ./ports.go
+//
+// Generated by this command:
+//
+//        mockgen -source ./ports.go -destination=./mocks.go -package=core
+//
+
+// Package core is a generated GoMock package.
+package core
+
+import (
+        context "context"
+        reflect "reflect"
+
+        gomock "go.uber.org/mock/gomock"
+)
+
+// MockUpdater is a mock of Updater interface.
+type MockUpdater struct {
+        ctrl     *gomock.Controller
+        recorder *MockUpdaterMockRecorder
+        isgomock struct{}
+}
+
+// MockUpdaterMockRecorder is the mock recorder for MockUpdater.
+type MockUpdaterMockRecorder struct {
+        mock *MockUpdater
+}
+
+// NewMockUpdater creates a new mock instance.
+func NewMockUpdater(ctrl *gomock.Controller) *MockUpdater <span class="cov0" title="0">{
+        mock := &amp;MockUpdater{ctrl: ctrl}
+        mock.recorder = &amp;MockUpdaterMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockUpdater) EXPECT() *MockUpdaterMockRecorder <span class="cov0" title="0">{
+        return m.recorder
+}</span>
+
+// Drop mocks base method.
+func (m *MockUpdater) Drop(arg0 context.Context) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Drop", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Drop indicates an expected call of Drop.
+func (mr *MockUpdaterMockRecorder) Drop(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Drop", reflect.TypeOf((*MockUpdater)(nil).Drop), arg0)
+}</span>
+
+// Stats mocks base method.
+func (m *MockUpdater) Stats(arg0 context.Context) (ServiceStats, error) <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Stats", arg0)
+        ret0, _ := ret[0].(ServiceStats)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Stats indicates an expected call of Stats.
+func (mr *MockUpdaterMockRecorder) Stats(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Stats", reflect.TypeOf((*MockUpdater)(nil).Stats), arg0)
+}</span>
+
+// Status mocks base method.
+func (m *MockUpdater) Status(arg0 context.Context) ServiceStatus <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Status", arg0)
+        ret0, _ := ret[0].(ServiceStatus)
+        return ret0
+}</span>
+
+// Status indicates an expected call of Status.
+func (mr *MockUpdaterMockRecorder) Status(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Status", reflect.TypeOf((*MockUpdater)(nil).Status), arg0)
+}</span>
+
+// Update mocks base method.
+func (m *MockUpdater) Update(arg0 context.Context) error <span class="cov0" title="0">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Update", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Update indicates an expected call of Update.
+func (mr *MockUpdaterMockRecorder) Update(arg0 any) *gomock.Call <span class="cov0" title="0">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockUpdater)(nil).Update), arg0)
+}</span>
+
+// MockDB is a mock of DB interface.
+type MockDB struct {
+        ctrl     *gomock.Controller
+        recorder *MockDBMockRecorder
+        isgomock struct{}
+}
+
+// MockDBMockRecorder is the mock recorder for MockDB.
+type MockDBMockRecorder struct {
+        mock *MockDB
+}
+
+// NewMockDB creates a new mock instance.
+func NewMockDB(ctrl *gomock.Controller) *MockDB <span class="cov3" title="7">{
+        mock := &amp;MockDB{ctrl: ctrl}
+        mock.recorder = &amp;MockDBMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockDB) EXPECT() *MockDBMockRecorder <span class="cov10" title="1003">{
+        return m.recorder
+}</span>
+
+// Add mocks base method.
+func (m *MockDB) Add(arg0 context.Context, arg1 Comics) error <span class="cov9" title="1000">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Add", arg0, arg1)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Add indicates an expected call of Add.
+func (mr *MockDBMockRecorder) Add(arg0, arg1 any) *gomock.Call <span class="cov9" title="1000">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Add", reflect.TypeOf((*MockDB)(nil).Add), arg0, arg1)
+}</span>
+
+// Drop mocks base method.
+func (m *MockDB) Drop(arg0 context.Context) error <span class="cov1" title="1">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Drop", arg0)
+        ret0, _ := ret[0].(error)
+        return ret0
+}</span>
+
+// Drop indicates an expected call of Drop.
+func (mr *MockDBMockRecorder) Drop(arg0 any) *gomock.Call <span class="cov1" title="1">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Drop", reflect.TypeOf((*MockDB)(nil).Drop), arg0)
+}</span>
+
+// IDs mocks base method.
+func (m *MockDB) IDs(arg0 context.Context) ([]int, error) <span class="cov1" title="1">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "IDs", arg0)
+        ret0, _ := ret[0].([]int)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// IDs indicates an expected call of IDs.
+func (mr *MockDBMockRecorder) IDs(arg0 any) *gomock.Call <span class="cov1" title="1">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IDs", reflect.TypeOf((*MockDB)(nil).IDs), arg0)
+}</span>
+
+// Stats mocks base method.
+func (m *MockDB) Stats(arg0 context.Context) (DBStats, error) <span class="cov1" title="1">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Stats", arg0)
+        ret0, _ := ret[0].(DBStats)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Stats indicates an expected call of Stats.
+func (mr *MockDBMockRecorder) Stats(arg0 any) *gomock.Call <span class="cov1" title="1">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Stats", reflect.TypeOf((*MockDB)(nil).Stats), arg0)
+}</span>
+
+// MockXKCD is a mock of XKCD interface.
+type MockXKCD struct {
+        ctrl     *gomock.Controller
+        recorder *MockXKCDMockRecorder
+        isgomock struct{}
+}
+
+// MockXKCDMockRecorder is the mock recorder for MockXKCD.
+type MockXKCDMockRecorder struct {
+        mock *MockXKCD
+}
+
+// NewMockXKCD creates a new mock instance.
+func NewMockXKCD(ctrl *gomock.Controller) *MockXKCD <span class="cov3" title="7">{
+        mock := &amp;MockXKCD{ctrl: ctrl}
+        mock.recorder = &amp;MockXKCDMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockXKCD) EXPECT() *MockXKCDMockRecorder <span class="cov10" title="1003">{
+        return m.recorder
+}</span>
+
+// Get mocks base method.
+func (m *MockXKCD) Get(arg0 context.Context, arg1 int) (XKCDInfo, error) <span class="cov9" title="1000">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Get", arg0, arg1)
+        ret0, _ := ret[0].(XKCDInfo)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Get indicates an expected call of Get.
+func (mr *MockXKCDMockRecorder) Get(arg0, arg1 any) *gomock.Call <span class="cov9" title="1000">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockXKCD)(nil).Get), arg0, arg1)
+}</span>
+
+// LastID mocks base method.
+func (m *MockXKCD) LastID(arg0 context.Context) (int, error) <span class="cov2" title="3">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "LastID", arg0)
+        ret0, _ := ret[0].(int)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// LastID indicates an expected call of LastID.
+func (mr *MockXKCDMockRecorder) LastID(arg0 any) *gomock.Call <span class="cov2" title="3">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "LastID", reflect.TypeOf((*MockXKCD)(nil).LastID), arg0)
+}</span>
+
+// MockWords is a mock of Words interface.
+type MockWords struct {
+        ctrl     *gomock.Controller
+        recorder *MockWordsMockRecorder
+        isgomock struct{}
+}
+
+// MockWordsMockRecorder is the mock recorder for MockWords.
+type MockWordsMockRecorder struct {
+        mock *MockWords
+}
+
+// NewMockWords creates a new mock instance.
+func NewMockWords(ctrl *gomock.Controller) *MockWords <span class="cov3" title="7">{
+        mock := &amp;MockWords{ctrl: ctrl}
+        mock.recorder = &amp;MockWordsMockRecorder{mock}
+        return mock
+}</span>
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockWords) EXPECT() *MockWordsMockRecorder <span class="cov9" title="1000">{
+        return m.recorder
+}</span>
+
+// Norm mocks base method.
+func (m *MockWords) Norm(ctx context.Context, phrase string) ([]string, error) <span class="cov9" title="1000">{
+        m.ctrl.T.Helper()
+        ret := m.ctrl.Call(m, "Norm", ctx, phrase)
+        ret0, _ := ret[0].([]string)
+        ret1, _ := ret[1].(error)
+        return ret0, ret1
+}</span>
+
+// Norm indicates an expected call of Norm.
+func (mr *MockWordsMockRecorder) Norm(ctx, phrase any) *gomock.Call <span class="cov9" title="1000">{
+        mr.mock.ctrl.T.Helper()
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Norm", reflect.TypeOf((*MockWords)(nil).Norm), ctx, phrase)
+}</span>
+</pre>
+		
+		<pre class="file" id="file41" style="display: none">//go:generate mockgen -source ./ports.go -destination=./mocks.go -package=core
+package core
+
+import (
+        "context"
+        "fmt"
+        "log/slog"
+        "slices"
+        "sync"
+)
+
+type Service struct {
+        mx          sync.Mutex
+        updateNow   bool
+        log         *slog.Logger
+        db          DB
+        xkcd        XKCD
+        words       Words
+        concurrency int
+}
+
+func NewService(
+        log *slog.Logger, db DB, xkcd XKCD, words Words, concurrency int,
+) (*Service, error) <span class="cov3" title="7">{
+        if concurrency &lt; 1 </span><span class="cov1" title="1">{
+                return nil, fmt.Errorf("wrong concurrency specified: %d", concurrency)
+        }</span>
+        <span class="cov3" title="6">return &amp;Service{
+                log:         log,
+                db:          db,
+                xkcd:        xkcd,
+                words:       words,
+                concurrency: concurrency,
+        }, nil</span>
+}
+
+func (s *Service) Update(ctx context.Context) (err error) <span class="cov1" title="2">{
+        if !s.mx.TryLock() </span><span class="cov0" title="0">{
+                return ErrAlreadyExists
+        }</span>
+        <span class="cov1" title="2">defer s.mx.Unlock()
+
+        s.updateNow = true
+        defer func() </span><span class="cov1" title="2">{
+                s.updateNow = false
+        }</span>()
+
+        <span class="cov1" title="2">lastID, err := s.xkcd.LastID(ctx)
+        if err != nil </span><span class="cov1" title="1">{
+                s.log.Error("failed to fetch last comic ID from XKCD", "error", err)
+                return err
+        }</span>
+
+        <span class="cov1" title="1">IDs, err := s.db.IDs(ctx)
+        if err != nil </span><span class="cov0" title="0">{
+                s.log.Error("failed to retrieve existing comic IDs from database", "error", err)
+                return err
+        }</span>
+
+        <span class="cov1" title="1">slices.Sort(IDs)
+
+        in1 := make(chan int)
+
+        go func() </span><span class="cov1" title="1">{
+                for i := 1; i &lt;= lastID; i++ </span><span class="cov10" title="1000">{
+                        if ctx.Err() != nil </span><span class="cov0" title="0">{
+                                break</span>
+                        }
+                        <span class="cov10" title="1000">in1 &lt;- i</span>
+                }
+
+                <span class="cov1" title="1">close(in1)</span>
+        }()
+
+        <span class="cov1" title="1">var wg sync.WaitGroup
+        wg.Add(s.concurrency)
+
+        out1 := make([]chan XKCDInfo, s.concurrency)
+        for i := 0; i &lt; s.concurrency; i++ </span><span class="cov4" title="10">{
+                out1[i] = make(chan XKCDInfo)
+                // XKCD GET() Получить JSON
+                go s.xkcdGet(ctx, IDs, in1, out1[i])
+        }</span>
+
+        <span class="cov1" title="1">in2 := merge1(out1...)
+
+        out2 := make([]chan Comics, s.concurrency)
+        for i := 0; i &lt; s.concurrency; i++ </span><span class="cov4" title="10">{
+                out2[i] = make(chan Comics)
+                // WORDS.NORM() Нормализация
+                go s.norm(ctx, in2, out2[i])
+        }</span>
+
+        <span class="cov1" title="1">in3 := merge2(out2...)
+
+        for i := 0; i &lt; s.concurrency; i++ </span><span class="cov4" title="10">{
+                // DATABASE.ADD() Сохранение в БД
+                go s.add(ctx, in3, &amp;wg)
+        }</span>
+
+        <span class="cov1" title="1">wg.Wait()
+
+        return nil</span>
+}
+
+func (s *Service) xkcdGet(ctx context.Context, ids []int, in chan int, out chan XKCDInfo) <span class="cov4" title="10">{
+        for id := range in </span><span class="cov10" title="1000">{
+                if ctx.Err() != nil </span><span class="cov0" title="0">{
+                        break</span>
+                }
+                <span class="cov10" title="1000">if _, ok := slices.BinarySearch(ids, id); !ok </span><span class="cov10" title="1000">{
+                        xkcd, err := s.xkcd.Get(ctx, id)
+                        if err != nil </span><span class="cov0" title="0">{
+                                s.log.Error("failed to fetch comic from XKCD API", "comic_id", id, "error", err)
+                                continue</span>
+                        }
+
+                        <span class="cov10" title="1000">out &lt;- xkcd</span>
+                }
+        }
+        <span class="cov4" title="10">close(out)</span>
+}
+
+func (s *Service) norm(ctx context.Context, in chan XKCDInfo, out chan Comics) <span class="cov4" title="10">{
+        for xkcd := range in </span><span class="cov10" title="1000">{
+                words, err := s.words.Norm(ctx, xkcd.Description)
+                if err != nil </span><span class="cov0" title="0">{
+                        s.log.Error("failed to process comic keywords", "comic_id", xkcd.ID, "error", err)
+                        continue</span>
+                }
+
+                <span class="cov10" title="1000">out &lt;- Comics{ID: xkcd.ID, URL: xkcd.URL, Words: words}</span>
+        }
+
+        <span class="cov4" title="10">close(out)</span>
+}
+
+func (s *Service) add(ctx context.Context, in chan Comics, wg *sync.WaitGroup) <span class="cov4" title="10">{
+        defer wg.Done()
+
+        for comics := range in </span><span class="cov10" title="1000">{
+                err := s.db.Add(ctx, comics)
+                if err != nil </span><span class="cov0" title="0">{
+                        s.log.Error("failed to persist comic in database", "comic_id", comics.ID, "error", err)
+                        continue</span>
+                }
+        }
+}
+
+func merge1(in ...chan XKCDInfo) chan XKCDInfo <span class="cov1" title="1">{
+        out := make(chan XKCDInfo)
+
+        var wg sync.WaitGroup
+        wg.Add(len(in))
+        for _, ch := range in </span><span class="cov4" title="10">{
+                go func() </span><span class="cov4" title="10">{
+                        defer wg.Done()
+                        for xkcd := range ch </span><span class="cov10" title="1000">{
+                                out &lt;- xkcd
+                        }</span>
+                }()
+        }
+
+        <span class="cov1" title="1">go func() </span><span class="cov1" title="1">{
+                wg.Wait()
+                close(out)
+        }</span>()
+
+        <span class="cov1" title="1">return out</span>
+}
+
+func merge2(in ...chan Comics) chan Comics <span class="cov1" title="1">{
+        out := make(chan Comics)
+
+        var wg sync.WaitGroup
+        wg.Add(len(in))
+
+        for _, ch := range in </span><span class="cov4" title="10">{
+                go func() </span><span class="cov4" title="10">{
+                        defer wg.Done()
+                        for comics := range ch </span><span class="cov10" title="1000">{
+                                out &lt;- comics
+                        }</span>
+                }()
+        }
+
+        <span class="cov1" title="1">go func() </span><span class="cov1" title="1">{
+                wg.Wait()
+                close(out)
+        }</span>()
+
+        <span class="cov1" title="1">return out</span>
+}
+
+func (s *Service) Stats(ctx context.Context) (ServiceStats, error) <span class="cov1" title="1">{
+        lastID, err := s.xkcd.LastID(ctx)
+        comicsTotal := lastID - 1 // т.к. ресурс под индексом 404 not found
+
+        if err != nil </span><span class="cov0" title="0">{
+                s.log.Error("failed to fetch last comic ID from XKCD", "error", err)
+                return ServiceStats{}, err
+        }</span>
+
+        <span class="cov1" title="1">DBstat, err := s.db.Stats(ctx)
+        if err != nil </span><span class="cov0" title="0">{
+                s.log.Error("failed to retrieve database statistics", "error", err)
+                return ServiceStats{}, err
+        }</span>
+
+        <span class="cov1" title="1">s.log.Info("Stats", "Result", ServiceStats{DBStats: DBstat, ComicsTotal: comicsTotal})
+
+        return ServiceStats{DBStats: DBstat, ComicsTotal: comicsTotal}, nil</span>
+}
+
+func (s *Service) Status(ctx context.Context) ServiceStatus <span class="cov1" title="2">{
+        if s.updateNow </span><span class="cov1" title="1">{
+                return StatusRunning
+        }</span> else<span class="cov1" title="1"> {
+                return StatusIdle
+        }</span>
+}
+
+func (s *Service) Drop(ctx context.Context) error <span class="cov1" title="1">{
+        return s.db.Drop(ctx)
+}</span>
+</pre>
+		
+		<pre class="file" id="file42" style="display: none">package words
+
+import (
+        "log/slog"
+        "maps"
+        "slices"
+        "strings"
+        "unicode"
+
+        "github.com/kljensen/snowball/english"
+)
+
+func Norm(phrase string, logger *slog.Logger) []string <span class="cov4" title="6">{
+        words := strings.FieldsFunc(phrase, func(r rune) bool </span><span class="cov10" title="142">{
+                return !unicode.IsLetter(r) &amp;&amp; !unicode.IsDigit(r)
+        }</span>)
+
+        <span class="cov4" title="6">logger.Info("words", "data", words)
+
+        wasStem := make(map[string]bool)
+        for _, word := range words </span><span class="cov7" title="29">{
+                if english.IsStopWord(strings.ToLower(word)) </span><span class="cov6" title="16">{
+                        continue</span>
+                }
+
+                <span class="cov5" title="13">stem := english.Stem(word, false)
+
+                if !wasStem[stem] </span><span class="cov5" title="11">{
+                        wasStem[stem] = true
+                }</span>
+        }
+
+        <span class="cov4" title="6">return slices.Collect(maps.Keys(wasStem))</span>
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

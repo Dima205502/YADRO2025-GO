@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Статус</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    .status-card {
+      margin-top: 3rem;
+      padding: 2rem;
+      border: 1px solid #0ff;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.6);
+      box-shadow:
+        0 0 10px #0ff,
+        0 0 20px #f0f;
+      color: #0ff;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .status-text {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-btn {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <header>
+    <h1 class="neon-text">Статус</h1>
+  </header>
+  <main>
+    <div class="status-card">
+      <div class="status-text">{{.Status}}</div>
+      <a href="/" class="neon-btn back-btn">На главную</a>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Comics Search
+  </footer>
+</body>
+</html>

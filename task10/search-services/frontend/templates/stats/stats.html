@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Статистика</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    .stats-card {
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 1px solid #0ff;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.6);
+      box-shadow:
+        0 0 10px #0ff,
+        0 0 20px #f0f;
+      color: #0ff;
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .stats-item {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .back-btn {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <header>
+    <h1 class="neon-text">Статистика</h1>
+  </header>
+  <main>
+    <div class="stats-card">
+      <div class="stats-item">Всего слов: {{.WordsTotal}}</div>
+      <div class="stats-item">Уникальных слов: {{.WordsUnique}}</div>
+      <div class="stats-item">Комиксов загружено: {{.ComicsFetched}}</div>
+      <div class="stats-item">Всего комиксов: {{.ComicsTotal}}</div>
+      <a class="neon-btn back-btn" href="/">На главную</a>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Comics Search
+  </footer>
+</body>
+</html>

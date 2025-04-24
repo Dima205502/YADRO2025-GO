@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Результаты поиска – {{ .Phrase }}</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+    /* 1. Фиксируем кнопку поверх всего */
+    .to-main-btn {
+      position: fixed;          /* всегда по экрану, не зависит от контента */ :contentReference[oaicite:0]{index=0}
+      top: 1rem;                /* отступ от верха окна */
+      left: 50%;                /* по центру по горизонтали */
+      transform: translateX(-50%);
+      z-index: 1000;            /* поверх любых слайдов */
+    }
+
+    /* 2. Контейнер слайдера должен показывать переполнение */
+    .slider {
+      position: relative;
+      width: 600px;
+      margin: 5rem auto;        /* добавляем отступ сверху, чтобы кнопка не накрывала слайдер */
+      overflow: visible;        /* содержимое не обрезается */ :contentReference[oaicite:1]{index=1}
+    }
+
+    /* Скрываем радио‑кнопки */
+    input[name="slide"] { display: none; }
+
+    /* Слайды по умолчанию скрыты */
+    .slide { display: none; text-align: center; }
+
+    /* Показываем активный слайд */
+    input[name="slide"]:checked + .slide { display: block; }
+
+    /* Обёртка для картинки */
+    .image-wrapper {
+      width: 100%;
+      height: calc(100vh - 10rem); /* подгоняем под высоту экрана */ :contentReference[oaicite:2]{index=2}
+      overflow: visible;            /* ничего не обрезаем */
+    }
+
+    /* Картинка заполняет обёртку, сохраняя пропорции */
+    .neon-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Счётчик */
+    .counter {
+      color: #0ff;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-shadow:
+        0 0 5px #f0f,
+        0 0 10px #f0f,
+        0 0 20px #0ff;
+    }
+
+    /* Стрелки */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #0ff;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .nav-arrow.prev { left: -2rem; }
+    .nav-arrow.next { right: -2rem; }
+
+    /* Сообщение при отсутствии результатов */
+    .no-results-card {
+      margin: 5rem auto;
+      padding: 2rem;
+      max-width: 600px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid #f0f;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #f0f, 0 0 20px #f0f;
+      text-align: center;
+    }
+    .no-results-text {
+      font-size: 2.5rem;
+      color: #f0f;
+      text-shadow: 0 0 5px #f0f, 0 0 10px #f0f;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <!-- Кнопка теперь позиционируется независимо -->
+  <button class="neon-btn to-main-btn" onclick="location.href='/'">
+    На главную
+  </button>
+
+  {{ if .Comics }}
+    <div class="slider">
+      {{ range $i, $c := .Comics }}
+        <input type="radio" name="slide" id="slide-{{ $i }}" {{ if eq $i 0 }}checked{{ end }}>
+        <div class="slide">
+          <div class="counter">{{ add $i 1 }} / {{ $.DisplayTotal }}</div>
+          <div class="image-wrapper">
+            <img src="{{ $c.URL }}" alt="Comic {{ $c.ID }}" class="neon-image">
+          </div>
+
+          {{ if gt $.DisplayTotal 1 }}
+            <label
+              for="slide-{{ if eq $i 0 }}{{ sub $.DisplayTotal 1 }}{{ else }}{{ sub $i 1 }}{{ end }}"
+              class="nav-arrow prev">←</label>
+            <label
+              for="slide-{{ if eq $i (sub $.DisplayTotal 1) }}0{{ else }}{{ add $i 1 }}{{ end }}"
+              class="nav-arrow next">→</label>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="no-results-card">
+      <p class="no-results-text">Ничего не найдено</p>
+    </div>
+  {{ end }}
+
+  <footer>&copy; 2025 Comics Search</footer>
+</body>
+</html>

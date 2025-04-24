@@ -1,0 +1,9 @@
+log_level: DEBUG
+update_address: localhost:8082
+words_address: localhost:8081
+db_address: postgres://admin:secret@localhost:5432/mydatabase?sslmode=disable
+xkcd:
+  url: https://xkcd.com
+  concurrency: 10
+  check_period: 1h
+  timeout: 10s

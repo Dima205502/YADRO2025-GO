@@ -1,0 +1,5 @@
+log_level: DEBUG
+api_address: localhost:8080
+frontend_server:
+  address: localhost:8085
+  timeout: 5s

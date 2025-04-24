@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search comics</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="background"></div>
+  <header>
+    <h1 class="neon-text">Search comics</h1>
+    <nav>
+      <button class="neon-btn" onclick="location.href='update'">Update</button>
+      <button class="neon-btn" onclick="location.href='drop'">Drop</button>
+      <button class="neon-btn" onclick="location.href='stats'">Stats</button>
+      <button class="neon-btn" onclick="location.href='status'">Status</button>
+      <button class="neon-btn" onclick="location.href='login'">Login</button>
+    </nav>
+  </header>
+  <main>
+    <section class="search neon-card">
+      <form action="/search" method="GET">
+        <div class="form-group">
+          <input
+            type="text"
+            name="phrase"
+            id="search-input"
+            placeholder="Введите фразу для поиска..."
+            class="neon-input"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="limit"
+            id="limit-input"
+            placeholder="Количество результатов"
+            class="neon-input"
+            required
+          >
+        </div>
+        <button type="submit" class="neon-btn search-btn">Поиск</button>
+      </form>
+    </section>
+  </main>
+  
+  <footer>
+    &copy; 2025 Comics Search
+  </footer>
+</body>
+</html>
